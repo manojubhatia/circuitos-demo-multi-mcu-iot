@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "tenant": {
+    "name": "untitled",
+    "slug": "20260929-135652",
+    "plan": "starter"
+  },
+  "device_profiles": [
+    {
+      "slug": "thespeaker",
+      "name": "theSpeaker",
+      "mcu_type": "esp32",
+      "connectivity": "wifi",
+      "ota_method": "http",
+      "instance_mode": "",
+      "quantity": 1
+    },
+    {
+      "slug": "environment",
+      "name": "environment",
+      "mcu_type": "esp32-c3",
+      "connectivity": "wifi",
+      "ota_method": "http",
+      "instance_mode": "",
+      "quantity": 1
+    },
+    {
+      "slug": "motor-n-mike",
+      "name": "motor_n_mike",
+      "mcu_type": "esp32c3",
+      "connectivity": "wifi",
+      "ota_method": "http",
+      "instance_mode": "",
+      "quantity": 1
+    }
+  ],
+  "mqtt": {
+    "topics_prefix": "circuitos/20260929_135652",
+    "qos": 1
+  }
+}

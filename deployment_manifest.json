@@ -1,0 +1,84 @@
+{
+  "manifest_version": "1.0",
+  "generator": "circuitos-studio",
+  "generated_at": "2026-09-29T11:57:00.107687Z",
+  "project": {
+    "name": "untitled",
+    "id": "20260929_135652"
+  },
+  "cloud_config": {
+    "schema_version": "1.0",
+    "tenant": {
+      "name": "untitled",
+      "slug": "20260929-135652",
+      "plan": "starter"
+    },
+    "device_profiles": [
+      {
+        "slug": "thespeaker",
+        "name": "theSpeaker",
+        "mcu_type": "esp32",
+        "connectivity": "wifi",
+        "ota_method": "http",
+        "instance_mode": "",
+        "quantity": 1
+      },
+      {
+        "slug": "environment",
+        "name": "environment",
+        "mcu_type": "esp32-c3",
+        "connectivity": "wifi",
+        "ota_method": "http",
+        "instance_mode": "",
+        "quantity": 1
+      },
+      {
+        "slug": "motor-n-mike",
+        "name": "motor_n_mike",
+        "mcu_type": "esp32c3",
+        "connectivity": "wifi",
+        "ota_method": "http",
+        "instance_mode": "",
+        "quantity": 1
+      }
+    ],
+    "mqtt": {
+      "topics_prefix": "circuitos/20260929_135652",
+      "qos": 1
+    }
+  },
+  "artifacts": [
+    {
+      "type": "backend",
+      "framework": "fastapi",
+      "path": "backend/",
+      "dockerfile": "backend/Dockerfile",
+      "port": 8000
+    },
+    {
+      "type": "frontend",
+      "framework": "react",
+      "path": "frontend/",
+      "dockerfile": "frontend/Dockerfile",
+      "port": 80
+    },
+    {
+      "type": "compose",
+      "path": "docker-compose.yml",
+      "description": "Local development docker-compose (reference)"
+    }
+  ],
+  "deployment": {
+    "target": "circuitos-cloud",
+    "cloud_api": "https://circuitos.cloud/api",
+    "endpoints": {
+      "deploy": "POST /api/deploy",
+      "status": "GET /api/deploy/{project_id}/status",
+      "logs": "GET /api/deploy/{project_id}/logs"
+    }
+  },
+  "domains": {
+    "default": "20260929_135652.circuitos.cloud",
+    "custom": null
+  }
+}

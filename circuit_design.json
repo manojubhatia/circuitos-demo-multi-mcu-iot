@@ -1,0 +1,883 @@
+{
+  "autoVisualization": {
+    "displayUI": true,
+    "frontendDashboard": true
+  },
+  "backendConfig": {
+    "communicationMethods": [
+      {
+        "config": {
+          "port": 8500
+        },
+        "sourceMcuId": "board_1",
+        "sourcePort": "wifi_http",
+        "type": "http"
+      },
+      {
+        "config": null,
+        "sourceMcuId": "board_5",
+        "sourcePort": "wifi_tcp",
+        "type": "tcp"
+      }
+    ],
+    "features": [
+      "websocket",
+      "rest_api"
+    ],
+    "nodeId": "system_backend_3",
+    "port": 8500
+  },
+  "edges": [
+    {
+      "id": "edge_0",
+      "interface": "i2c",
+      "label": "I2C",
+      "source": "component_2",
+      "sourcePin": "i2c",
+      "target": "board_1",
+      "targetPin": "i2c"
+    },
+    {
+      "id": "edge_1",
+      "interface": "http",
+      "label": "HTTP",
+      "source": "board_1",
+      "sourcePin": "wifi",
+      "target": "board_0",
+      "targetPin": "wifi"
+    },
+    {
+      "id": "edge_2",
+      "interface": "tcp",
+      "label": "TCP",
+      "source": "board_1",
+      "sourcePin": "wifi_tcp",
+      "target": "board_0",
+      "targetPin": "wifi_tcp"
+    },
+    {
+      "id": "edge_3",
+      "interface": "http",
+      "label": "HTTP",
+      "source": "board_1",
+      "sourcePin": "wifi_http",
+      "target": "system_backend_3",
+      "targetPin": "http"
+    },
+    {
+      "id": "edge_4",
+      "interface": "rest_api",
+      "label": "REST_API",
+      "source": "system_backend_3",
+      "sourcePin": "rest_api",
+      "target": "system_frontend_4",
+      "targetPin": "rest_api"
+    },
+    {
+      "id": "edge_7",
+      "interface": "bluetooth",
+      "label": "BLUETOOTH",
+      "source": "board_0",
+      "sourcePin": "bluetooth",
+      "target": "component_4",
+      "targetPin": "bluetooth"
+    },
+    {
+      "id": "edge_8",
+      "interface": "bluetooth",
+      "label": "BLUETOOTH",
+      "source": "board_0",
+      "sourcePin": "bluetooth",
+      "target": "component_4",
+      "targetPin": "bluetooth"
+    },
+    {
+      "id": "edge_9",
+      "interface": "i2s",
+      "label": "I2S",
+      "source": "component_3",
+      "sourcePin": "i2s",
+      "target": "board_5",
+      "targetPin": "i2s"
+    },
+    {
+      "id": "edge_10",
+      "interface": "tcp",
+      "label": "TCP",
+      "source": "board_5",
+      "sourcePin": "wifi_tcp",
+      "target": "system_backend_3",
+      "targetPin": "tcp"
+    },
+    {
+      "id": "edge_13",
+      "interface": "spi",
+      "label": "SPI",
+      "source": "board_1",
+      "sourcePin": "spi",
+      "target": "board_5",
+      "targetPin": "spi"
+    },
+    {
+      "id": "edge_14",
+      "interface": "bluetooth",
+      "label": "BLUETOOTH",
+      "source": "board_0",
+      "sourcePin": "bluetooth",
+      "target": "component_4",
+      "targetPin": "bluetooth"
+    }
+  ],
+  "frontendConfig": {
+    "communicationMethods": [],
+    "features": [
+      "react",
+      "websocket"
+    ],
+    "nodeId": "system_frontend_4",
+    "port": 8501
+  },
+  "heartbeatDiscovery": true,
+  "includeBackend": true,
+  "includeFrontend": true,
+  "nodes": [
+    {
+      "config": {
+        "buildSystem": "esp_idf",
+        "compositeBoardId": "esp32-2432s028r",
+        "compositePeripherals": [
+          {
+            "config": {
+              "color_order": "BGR",
+              "driver": "ILI9341",
+              "height": 320,
+              "invert_colors": false,
+              "rotation": 0,
+              "spi_bus": "HSPI",
+              "spi_frequency": 40000000,
+              "width": 240
+            },
+            "id": "builtin-display",
+            "interface": "spi",
+            "library": {
+              "config_required": true,
+              "config_template": "esp32_2432s028r",
+              "name": "TFT_eSPI",
+              "source": "platformio",
+              "version": "^2.5.0"
+            },
+            "name": "ILI9341 TFT Display",
+            "pins": {
+              "bl": 21,
+              "cs": 15,
+              "dc": 2,
+              "miso": 12,
+              "mosi": 13,
+              "rst": -1,
+              "sclk": 14
+            },
+            "type": "display"
+          },
+          {
+            "config": {
+              "calibration": {
+                "x_max": 3700,
+                "x_min": 200,
+                "y_max": 3800,
+                "y_min": 240
+              },
+              "spi_bus": "VSPI_CUSTOM",
+              "spi_frequency": 2500000,
+              "touch_rotation": 1
+            },
+            "id": "builtin-touch",
+            "interface": "spi",
+            "library": {
+              "name": "XPT2046_Touchscreen",
+              "source": "platformio",
+              "version": "^1.4"
+            },
+            "name": "XPT2046 Touch Controller",
+            "notes": "Touch uses separate SPI bus with custom pins (not default VSPI). Calibration values may need adjustment per unit.",
+            "pins": {
+              "cs": 33,
+              "irq": 36,
+              "miso": 39,
+              "mosi": 32,
+              "sclk": 25
+            },
+            "type": "touch"
+          },
+          {
+            "config": {
+              "active_low": true
+            },
+            "id": "builtin-rgb-led",
+            "interface": "gpio",
+            "name": "RGB LED",
+            "notes": "LEDs are active-low (LOW = ON, HIGH = OFF). Can be used for status indication.",
+            "pins": {
+              "blue": 17,
+              "green": 16,
+              "red": 4
+            },
+            "type": "led"
+          },
+          {
+            "config": {
+              "adc_atten": "11db",
+              "adc_width": 12
+            },
+            "id": "builtin-ldr",
+            "interface": "adc",
+            "name": "LDR Light Sensor",
+            "notes": "Built-in photoresistor for ambient light sensing. Can be used for auto-brightness control.",
+            "pins": {
+              "adc": 34
+            },
+            "type": "sensor"
+          },
+          {
+            "config": {
+              "max_freq": 20000000,
+              "spi_bus": "VSPI"
+            },
+            "id": "builtin-sdcard",
+            "interface": "spi",
+            "name": "MicroSD Card Slot",
+            "notes": "Shared SPI bus may have issues with simultaneous display operations. Consider using 1-bit SD mode if available.",
+            "pins": {
+              "cs": 5,
+              "miso": 19,
+              "mosi": 23,
+              "sclk": 18
+            },
+            "type": "sd_card"
+          },
+          {
+            "config": {
+              "amplifier": "8002A",
+              "connector": "2P 1.25mm JST"
+            },
+            "id": "builtin-speaker",
+            "interface": "dac",
+            "name": "Speaker Connector (8002A Amp)",
+            "notes": "DAC output with 8002A audio amplifier. Connect 8 ohm speaker to JST connector.",
+            "pins": {
+              "signal": 26
+            },
+            "type": "audio"
+          }
+        ],
+        "language": "cpp",
+        "wifi_protocols": [
+          "tcp"
+        ]
+      },
+      "id": "board_0",
+      "name": "theSpeaker",
+      "position": {
+        "x": 1680.0,
+        "y": 200.0
+      },
+      "provisioningSettings": {
+        "dataflow": {
+          "wifi_role": "external_wifi"
+        },
+        "display_menu": {
+          "driver": "u8g2",
+          "enabled": false,
+          "height": 64,
+          "i2c": true,
+          "rotation": 0,
+          "show_network_page": true,
+          "show_sensor_page": true,
+          "show_settings_menu": true,
+          "show_status_page": true,
+          "width": 128
+        },
+        "nvs_storage": {
+          "enabled": true,
+          "max_password_len": 65,
+          "max_ssid_len": 33,
+          "max_string_len": 128,
+          "namespace": "device_cfg",
+          "stored_values": []
+        },
+        "observability": {
+          "content_type": "application/json",
+          "enabled": true,
+          "endpoint": "/api/telemetry",
+          "host": "192.168.0.76",
+          "http_method": "POST",
+          "max_payload_size": 4096,
+          "port": 7777,
+          "send_interval_ms": 1000,
+          "timeout_ms": 10000,
+          "transport": "udp",
+          "uart_baud": 115200,
+          "uart_rx_pin": -1,
+          "uart_tx_pin": -1,
+          "use_https": false
+        },
+        "provisioning": {
+          "ap_channel": 1,
+          "ap_max_connections": 4,
+          "ap_password": "12345678",
+          "ap_ssid": "ESP32 Cheap Yellow Display (CYD)_Setup",
+          "connect_timeout_ms": 15000,
+          "enabled": true,
+          "flow": "full",
+          "max_retries": 3,
+          "portal_fields": [
+            "ssid",
+            "password",
+            "device_name"
+          ],
+          "portal_title": "Device Setup",
+          "retry_delay_ms": 5000,
+          "server_registration": false
+        }
+      },
+      "quantity": 1,
+      "registryId": "esp32-2432s028r",
+      "systemType": null,
+      "type": "board"
+    },
+    {
+      "config": {
+        "buildSystem": "esp_idf",
+        "compositeBoardId": "luatos-esp32-c3-air101-lcd-stack",
+        "compositePeripherals": [
+          {
+            "component_id": "st7735s-160x80",
+            "config": {
+              "color_order": "BGR",
+              "driver": "ST7735S",
+              "height": 80,
+              "init_mode": "INITR_MINI160x80",
+              "invert_display": true,
+              "rotation": 1,
+              "spi_frequency": 20000000,
+              "width": 160,
+              "x_offset": 0,
+              "y_offset": 24
+            },
+            "connection_type": "library",
+            "id": "builtin-display",
+            "interface": "spi",
+            "library": {
+              "config_required": true,
+              "config_template": "ST7735_LUATOS_C3",
+              "name": "TFT_eSPI",
+              "source": "platformio",
+              "version": "^2.5.0"
+            },
+            "name": "ST7735S LCD Display",
+            "notes": "ST7735S 0.96\" TFT LCD via SPI from ESP32-C3",
+            "pins": {
+              "bl": -1,
+              "cs": 7,
+              "dc": 6,
+              "mosi": 3,
+              "rst": 10,
+              "sclk": 2
+            },
+            "type": "display"
+          },
+          {
+            "active_low": true,
+            "connection_type": "direct",
+            "id": "joystick-up",
+            "interface": "gpio",
+            "name": "Joystick Up",
+            "notes": "Joystick UP direction",
+            "pins": {
+              "signal": 8
+            },
+            "type": "button"
+          },
+          {
+            "active_low": true,
+            "connection_type": "direct",
+            "id": "joystick-down",
+            "interface": "gpio",
+            "name": "Joystick Down",
+            "notes": "Joystick DOWN direction",
+            "pins": {
+              "signal": 13
+            },
+            "type": "button"
+          },
+          {
+            "active_low": true,
+            "connection_type": "direct",
+            "id": "joystick-left",
+            "interface": "gpio",
+            "name": "Joystick Left",
+            "notes": "Joystick LEFT direction",
+            "pins": {
+              "signal": 5
+            },
+            "type": "button"
+          },
+          {
+            "active_low": true,
+            "connection_type": "direct",
+            "id": "joystick-right",
+            "interface": "gpio",
+            "name": "Joystick Right",
+            "notes": "Joystick RIGHT direction",
+            "pins": {
+              "signal": 9
+            },
+            "type": "button"
+          },
+          {
+            "active_low": true,
+            "connection_type": "direct",
+            "id": "joystick-center",
+            "interface": "gpio",
+            "name": "Joystick Center/Press",
+            "notes": "Joystick CENTER press",
+            "pins": {
+              "signal": 4
+            },
+            "type": "button"
+          },
+          {
+            "active_low": true,
+            "connection_type": "direct",
+            "id": "boot-button",
+            "interface": "gpio",
+            "name": "Boot Button",
+            "notes": "Boot mode selection button",
+            "pins": {
+              "signal": 9
+            },
+            "type": "button"
+          }
+        ],
+        "language": "cpp",
+        "wifi_protocols": [
+          "tcp",
+          "http"
+        ]
+      },
+      "id": "board_1",
+      "name": "environment",
+      "position": {
+        "x": 1390.0,
+        "y": 560.0
+      },
+      "provisioningSettings": {
+        "dataflow": {
+          "wifi_role": "external_wifi"
+        },
+        "display_menu": {
+          "driver": "u8g2",
+          "enabled": false,
+          "height": 64,
+          "i2c": true,
+          "rotation": 0,
+          "show_network_page": true,
+          "show_sensor_page": true,
+          "show_settings_menu": true,
+          "show_status_page": true,
+          "width": 128
+        },
+        "nvs_storage": {
+          "enabled": true,
+          "max_password_len": 65,
+          "max_ssid_len": 33,
+          "max_string_len": 128,
+          "namespace": "device_cfg",
+          "stored_values": []
+        },
+        "observability": {
+          "content_type": "application/json",
+          "enabled": true,
+          "endpoint": "/api/telemetry",
+          "host": "192.168.0.76",
+          "http_method": "POST",
+          "max_payload_size": 4096,
+          "port": 7777,
+          "send_interval_ms": 1000,
+          "timeout_ms": 10000,
+          "transport": "udp",
+          "uart_baud": 115200,
+          "uart_rx_pin": -1,
+          "uart_tx_pin": -1,
+          "use_https": false
+        },
+        "provisioning": {
+          "ap_channel": 1,
+          "ap_max_connections": 4,
+          "ap_password": "12345678",
+          "ap_ssid": "LuatOS ESP32-C3 + Air101-LCD Stack_Setup",
+          "connect_timeout_ms": 15000,
+          "enabled": true,
+          "flow": "full",
+          "max_retries": 3,
+          "portal_fields": [
+            "ssid",
+            "password",
+            "device_name"
+          ],
+          "portal_title": "Device Setup",
+          "retry_delay_ms": 5000,
+          "server_registration": false
+        }
+      },
+      "quantity": 1,
+      "registryId": "luatos-esp32-c3-air101-lcd-stack",
+      "systemType": null,
+      "type": "board"
+    },
+    {
+      "config": {
+        "resolvedPins": {
+          "scl": 18,
+          "sda": 19
+        }
+      },
+      "id": "component_2",
+      "name": "AHT10 Temperature/Humidity Sensor",
+      "position": {
+        "x": 1400.0,
+        "y": 280.0
+      },
+      "provisioningSettings": null,
+      "quantity": 1,
+      "registryId": "aht10",
+      "systemType": null,
+      "type": "component"
+    },
+    {
+      "config": {
+        "features": [
+          "websocket",
+          "rest_api"
+        ],
+        "host": "192.168.0.76",
+        "port": 8500
+      },
+      "id": "system_backend_3",
+      "name": "Backend Server",
+      "position": {
+        "x": 2110.0,
+        "y": 580.0
+      },
+      "provisioningSettings": null,
+      "quantity": 1,
+      "registryId": "system_backend",
+      "systemType": "backend",
+      "type": "system"
+    },
+    {
+      "config": {
+        "features": [
+          "react",
+          "websocket"
+        ],
+        "host": "192.168.0.76",
+        "port": 8501
+      },
+      "id": "system_frontend_4",
+      "name": "Frontend App",
+      "position": {
+        "x": 2410.0,
+        "y": 580.0
+      },
+      "provisioningSettings": null,
+      "quantity": 1,
+      "registryId": "system_frontend",
+      "systemType": "frontend",
+      "type": "system"
+    },
+    {
+      "config": {
+        "resolvedPins": {
+          "sck": 0,
+          "sd": 2,
+          "ws": 1
+        }
+      },
+      "id": "component_3",
+      "name": "INMP441 I2S MEMS Microphone",
+      "position": {
+        "x": 1090.0,
+        "y": 550.0
+      },
+      "provisioningSettings": null,
+      "quantity": 1,
+      "registryId": "inmp441",
+      "systemType": null,
+      "type": "component"
+    },
+    {
+      "config": {
+        "resolvedPins": {
+          "left": 4,
+          "right": 4
+        }
+      },
+      "id": "component_4",
+      "name": "Bluetooth Speaker",
+      "position": {
+        "x": 1790.0,
+        "y": 840.0
+      },
+      "provisioningSettings": null,
+      "quantity": 1,
+      "registryId": "bluetooth-speaker",
+      "systemType": null,
+      "type": "component"
+    },
+    {
+      "config": {
+        "buildSystem": "esp_idf",
+        "compositeBoardId": "zephyr-esp32c3-devkitm",
+        "language": "cpp",
+        "peripheralMap": {
+          "bluetooth_module": "integrated",
+          "peripherals": [
+            {
+              "dts_label": "uart0",
+              "id": "uart0",
+              "kconfig": "CONFIG_SERIAL=y",
+              "name": "UART 0",
+              "pins": [],
+              "properties": {
+                "baud_rate": 115200
+              },
+              "status": "okay",
+              "type": "uart"
+            },
+            {
+              "dts_label": "uart1",
+              "id": "uart1",
+              "kconfig": "CONFIG_SERIAL=y",
+              "name": "UART 1",
+              "pins": [],
+              "properties": {
+                "baud_rate": 115200
+              },
+              "status": "disabled",
+              "type": "uart"
+            },
+            {
+              "dts_label": "uart2",
+              "id": "uart2",
+              "kconfig": "CONFIG_SERIAL=y",
+              "name": "UART 2",
+              "pins": [],
+              "properties": {
+                "baud_rate": 115200
+              },
+              "status": "disabled",
+              "type": "uart"
+            },
+            {
+              "dts_label": "i2c0",
+              "id": "i2c0",
+              "kconfig": "CONFIG_I2C=y",
+              "name": "I2C 0",
+              "pins": [],
+              "properties": {
+                "clock_frequency": 400000
+              },
+              "status": "okay",
+              "type": "i2c"
+            },
+            {
+              "dts_label": "i2c1",
+              "id": "i2c1",
+              "kconfig": "CONFIG_I2C=y",
+              "name": "I2C 1",
+              "pins": [],
+              "properties": {
+                "clock_frequency": 400000
+              },
+              "status": "disabled",
+              "type": "i2c"
+            },
+            {
+              "dts_label": "spi0",
+              "id": "spi0",
+              "kconfig": "CONFIG_SPI=y",
+              "name": "SPI 0",
+              "pins": [],
+              "properties": {
+                "frequency": 1000000
+              },
+              "status": "disabled",
+              "type": "spi"
+            },
+            {
+              "dts_label": "spi1",
+              "id": "spi1",
+              "kconfig": "CONFIG_SPI=y",
+              "name": "SPI 1",
+              "pins": [],
+              "properties": {
+                "frequency": 1000000
+              },
+              "status": "disabled",
+              "type": "spi"
+            },
+            {
+              "dts_label": "spi2",
+              "id": "spi2",
+              "kconfig": "CONFIG_SPI=y",
+              "name": "SPI 2",
+              "pins": [],
+              "properties": {
+                "frequency": 1000000
+              },
+              "status": "disabled",
+              "type": "spi"
+            },
+            {
+              "dts_label": "pwm0",
+              "id": "pwm0",
+              "kconfig": "CONFIG_PWM=y",
+              "name": "PWM 0",
+              "pins": [],
+              "properties": {},
+              "status": "disabled",
+              "type": "pwm"
+            },
+            {
+              "dts_label": "pwm1",
+              "id": "pwm1",
+              "kconfig": "CONFIG_PWM=y",
+              "name": "PWM 1",
+              "pins": [],
+              "properties": {},
+              "status": "disabled",
+              "type": "pwm"
+            },
+            {
+              "dts_label": "pwm2",
+              "id": "pwm2",
+              "kconfig": "CONFIG_PWM=y",
+              "name": "PWM 2",
+              "pins": [],
+              "properties": {},
+              "status": "disabled",
+              "type": "pwm"
+            },
+            {
+              "dts_label": "pwm3",
+              "id": "pwm3",
+              "kconfig": "CONFIG_PWM=y",
+              "name": "PWM 3",
+              "pins": [],
+              "properties": {},
+              "status": "disabled",
+              "type": "pwm"
+            },
+            {
+              "dts_label": "adc0",
+              "id": "adc0",
+              "kconfig": "CONFIG_ADC=y",
+              "name": "ADC",
+              "pins": [],
+              "properties": {
+                "channels": 10,
+                "resolution": 12
+              },
+              "status": "disabled",
+              "type": "adc"
+            },
+            {
+              "dts_label": "flash0",
+              "id": "flash0",
+              "kconfig": "CONFIG_FLASH=y",
+              "name": "Internal Flash",
+              "pins": [],
+              "properties": {},
+              "status": "okay",
+              "type": "flash"
+            }
+          ],
+          "wifi_module": "integrated"
+        },
+        "wifi_protocols": [
+          "tcp"
+        ]
+      },
+      "id": "board_5",
+      "name": "motor_n_mike",
+      "position": {
+        "x": 1180.0,
+        "y": 800.0
+      },
+      "provisioningSettings": {
+        "dataflow": {
+          "wifi_role": "external_wifi"
+        },
+        "display_menu": {
+          "driver": "u8g2",
+          "enabled": false,
+          "height": 64,
+          "i2c": true,
+          "rotation": 0,
+          "show_network_page": true,
+          "show_sensor_page": true,
+          "show_settings_menu": true,
+          "show_status_page": true,
+          "width": 128
+        },
+        "nvs_storage": {
+          "enabled": true,
+          "max_password_len": 65,
+          "max_ssid_len": 33,
+          "max_string_len": 128,
+          "namespace": "device_cfg",
+          "stored_values": []
+        },
+        "observability": {
+          "content_type": "application/json",
+          "enabled": true,
+          "endpoint": "/api/telemetry",
+          "host": "192.168.0.76",
+          "http_method": "POST",
+          "max_payload_size": 4096,
+          "port": 7777,
+          "send_interval_ms": 1000,
+          "timeout_ms": 10000,
+          "transport": "udp",
+          "uart_baud": 115200,
+          "uart_rx_pin": -1,
+          "uart_tx_pin": -1,
+          "use_https": false
+        },
+        "provisioning": {
+          "ap_channel": 1,
+          "ap_max_connections": 4,
+          "ap_password": "12345678",
+          "ap_ssid": "motor_n_mike_Setup",
+          "connect_timeout_ms": 15000,
+          "enabled": true,
+          "flow": "full",
+          "max_retries": 3,
+          "portal_fields": [
+            "ssid",
+            "password"
+          ],
+          "portal_title": "Device Setup",
+          "retry_delay_ms": 5000,
+          "server_registration": false
+        }
+      },
+      "quantity": 1,
+      "registryId": "zephyr-esp32c3-devkitm",
+      "systemType": null,
+      "type": "board"
+    }
+  ],
+  "plugins": [],
+  "wifiProvisioning": true
+}

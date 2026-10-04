@@ -1,0 +1,208 @@
+{
+  "pages": [
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "title": "Sensor Dashboard",
+      "path": "/",
+      "widgets": [
+        {
+          "id": "widget_auto_0",
+          "type": "plotly-chart",
+          "props": {
+            "boundVariable": "environment_aht10_temperature",
+            "field": "environment_aht10_temperature",
+            "fields": [
+              "environment_aht10_humidity"
+            ],
+            "label": "AHT10 Temperature/Humidity Sensor",
+            "unit": "celsius",
+            "min": -40,
+            "max": 100
+          },
+          "layout": {
+            "x": 0,
+            "y": 0,
+            "w": 24,
+            "h": 28
+          }
+        },
+        {
+          "id": "widget_auto_1",
+          "type": "plotly-chart",
+          "props": {
+            "boundVariable": "motor_n_mike_inmp441_audio_level",
+            "field": "motor_n_mike_inmp441_audio_level",
+            "fields": [
+              "motor_n_mike_inmp441_peak_amplitude",
+              "motor_n_mike_inmp441_rms_level"
+            ],
+            "label": "INMP441 I2S MEMS Microphone",
+            "unit": "dB",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 24,
+            "y": 0,
+            "w": 24,
+            "h": 28
+          }
+        },
+        {
+          "id": "widget_auto_2",
+          "type": "metric-stat",
+          "props": {
+            "boundVariable": "motor_n_mike_inmp441_audio_samples",
+            "field": "motor_n_mike_inmp441_audio_samples",
+            "label": "[motor_n_mike] INMP441 I2S MEMS Microphone - Audio Samples",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 0,
+            "y": 28,
+            "w": 24,
+            "h": 5
+          }
+        },
+        {
+          "id": "widget_auto_3",
+          "type": "output-led",
+          "props": {
+            "boundVariable": "motor_n_mike_inmp441_is_clipping",
+            "field": "motor_n_mike_inmp441_is_clipping",
+            "label": "[motor_n_mike] INMP441 I2S MEMS Microphone - Is Clipping",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 24,
+            "y": 28,
+            "w": 24,
+            "h": 5
+          }
+        },
+        {
+          "id": "widget_auto_4",
+          "type": "radial-gauge",
+          "props": {
+            "boundVariable": "thespeaker_bluetoothspeaker_rssi",
+            "field": "thespeaker_bluetoothspeaker_rssi",
+            "label": "[theSpeaker] Bluetooth Speaker - Rssi",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 48,
+            "y": 28,
+            "w": 24,
+            "h": 5
+          }
+        },
+        {
+          "id": "widget_auto_5",
+          "type": "output-led",
+          "props": {
+            "boundVariable": "thespeaker_bluetoothspeaker_connected",
+            "field": "thespeaker_bluetoothspeaker_connected",
+            "label": "[theSpeaker] Bluetooth Speaker - Connected",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 72,
+            "y": 28,
+            "w": 24,
+            "h": 5
+          }
+        },
+        {
+          "id": "widget_auto_6",
+          "type": "metric-stat",
+          "props": {
+            "boundVariable": "thespeaker_bluetoothspeaker_device_name",
+            "field": "thespeaker_bluetoothspeaker_device_name",
+            "label": "[theSpeaker] Bluetooth Speaker - Device Name",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 0,
+            "y": 33,
+            "w": 24,
+            "h": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "name": "Controls",
+      "title": "Device Controls",
+      "path": "/controls",
+      "widgets": [
+        {
+          "id": "widget_auto_7",
+          "type": "metric-stat",
+          "props": {
+            "boundVariable": "playing",
+            "field": "playing",
+            "label": "[theSpeaker] Bluetooth Speaker - Playing",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 0,
+            "y": 0,
+            "w": 24,
+            "h": 5
+          }
+        },
+        {
+          "id": "widget_auto_8",
+          "type": "input-slider",
+          "props": {
+            "boundVariable": "volume",
+            "field": "volume",
+            "label": "[theSpeaker] Bluetooth Speaker - Volume",
+            "unit": "",
+            "min": 0,
+            "max": 100
+          },
+          "layout": {
+            "x": 24,
+            "y": 0,
+            "w": 24,
+            "h": 5
+          }
+        },
+        {
+          "id": "widget_auto_9",
+          "type": "input-button",
+          "props": {
+            "boundVariable": "audio_source",
+            "field": "audio_source",
+            "label": "[theSpeaker] Bluetooth Speaker - Audio Source",
+            "unit": "",
+            "min": null,
+            "max": null
+          },
+          "layout": {
+            "x": 48,
+            "y": 0,
+            "w": 24,
+            "h": 5
+          }
+        }
+      ]
+    }
+  ],
+  "auto_generated": true
+}

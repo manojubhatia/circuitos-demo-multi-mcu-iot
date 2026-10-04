@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: thespeaker-(3-boards)-backend
+    ports:
+      - "8500:8500"
+    environment:
+      - PORT=8500
+      - HOST=0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8500/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - thespeaker-(3-boards)-network
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: thespeaker-(3-boards)-frontend
+    ports:
+      - "8501:80"
+    environment:
+      - VITE_API_URL=http://localhost:8500/api
+      - VITE_WS_URL=ws://localhost:8500/ws
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - thespeaker-(3-boards)-network
+
+networks:
+  thespeaker-(3-boards)-network:
+    driver: bridge

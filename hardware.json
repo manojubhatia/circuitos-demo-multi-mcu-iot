@@ -1,0 +1,440 @@
+{
+  "component_list": [
+    {
+      "name": "theSpeaker",
+      "type": "microcontroller",
+      "quantity": 1,
+      "description": "esp32 development board"
+    },
+    {
+      "name": "environment",
+      "type": "microcontroller",
+      "quantity": 1,
+      "description": "esp32-c3 development board"
+    },
+    {
+      "name": "motor_n_mike",
+      "type": "microcontroller",
+      "quantity": 1,
+      "description": "esp32c3 development board"
+    },
+    {
+      "name": "ILI9341 TFT Display",
+      "type": "display",
+      "quantity": 1,
+      "description": "ILI9341 TFT Display"
+    },
+    {
+      "name": "XPT2046 Touch Controller",
+      "type": "input",
+      "quantity": 1,
+      "description": "XPT2046 Touch Controller"
+    },
+    {
+      "name": "RGB LED",
+      "type": "actuator",
+      "quantity": 1,
+      "description": "RGB LED"
+    },
+    {
+      "name": "LDR Light Sensor",
+      "type": "sensor",
+      "quantity": 1,
+      "description": "LDR Light Sensor"
+    },
+    {
+      "name": "MicroSD Card Slot",
+      "type": "sensor",
+      "quantity": 1,
+      "description": "MicroSD Card Slot"
+    },
+    {
+      "name": "Speaker Connector (8002A Amp)",
+      "type": "sensor",
+      "quantity": 1,
+      "description": "Speaker Connector (8002A Amp)"
+    },
+    {
+      "name": "ST7735S LCD Display",
+      "type": "display",
+      "quantity": 1,
+      "description": "ST7735S LCD Display"
+    },
+    {
+      "name": "Joystick Up",
+      "type": "input",
+      "quantity": 1,
+      "description": "Joystick Up"
+    },
+    {
+      "name": "Joystick Down",
+      "type": "input",
+      "quantity": 1,
+      "description": "Joystick Down"
+    },
+    {
+      "name": "Joystick Left",
+      "type": "input",
+      "quantity": 1,
+      "description": "Joystick Left"
+    },
+    {
+      "name": "Joystick Right",
+      "type": "input",
+      "quantity": 1,
+      "description": "Joystick Right"
+    },
+    {
+      "name": "Joystick Center/Press",
+      "type": "input",
+      "quantity": 1,
+      "description": "Joystick Center/Press"
+    },
+    {
+      "name": "Boot Button",
+      "type": "input",
+      "quantity": 1,
+      "description": "Boot Button"
+    },
+    {
+      "name": "AHT10 Temperature/Humidity Sensor",
+      "type": "sensor",
+      "quantity": 1,
+      "description": "AHT10 Temperature/Humidity Sensor"
+    },
+    {
+      "name": "INMP441 I2S MEMS Microphone",
+      "type": "sensor",
+      "quantity": 1,
+      "description": "INMP441 I2S MEMS Microphone"
+    },
+    {
+      "name": "Bluetooth Speaker",
+      "type": "actuator",
+      "quantity": 1,
+      "description": "Bluetooth Speaker"
+    }
+  ],
+  "wiring_connections": [
+    {
+      "from": "ILI9341 TFT Display VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "ILI9341 TFT Display MOSI",
+      "to": "theSpeaker GPIO23",
+      "wire_color": "orange"
+    },
+    {
+      "from": "ILI9341 TFT Display MISO",
+      "to": "theSpeaker GPIO19",
+      "wire_color": "purple"
+    },
+    {
+      "from": "ILI9341 TFT Display SCLK",
+      "to": "theSpeaker GPIO18",
+      "wire_color": "gray"
+    },
+    {
+      "from": "ILI9341 TFT Display CS",
+      "to": "theSpeaker GPIO5",
+      "wire_color": "white"
+    },
+    {
+      "from": "ILI9341 TFT Display GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "XPT2046 Touch Controller VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "XPT2046 Touch Controller MOSI",
+      "to": "theSpeaker GPIO23",
+      "wire_color": "orange"
+    },
+    {
+      "from": "XPT2046 Touch Controller MISO",
+      "to": "theSpeaker GPIO19",
+      "wire_color": "purple"
+    },
+    {
+      "from": "XPT2046 Touch Controller SCLK",
+      "to": "theSpeaker GPIO18",
+      "wire_color": "gray"
+    },
+    {
+      "from": "XPT2046 Touch Controller CS",
+      "to": "theSpeaker GPIO5",
+      "wire_color": "white"
+    },
+    {
+      "from": "XPT2046 Touch Controller GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "RGB LED VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "RGB LED DATA",
+      "to": "theSpeaker GPIO4",
+      "wire_color": "green"
+    },
+    {
+      "from": "RGB LED GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "LDR Light Sensor VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "LDR Light Sensor GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "MicroSD Card Slot VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "MicroSD Card Slot MOSI",
+      "to": "theSpeaker GPIO23",
+      "wire_color": "orange"
+    },
+    {
+      "from": "MicroSD Card Slot MISO",
+      "to": "theSpeaker GPIO19",
+      "wire_color": "purple"
+    },
+    {
+      "from": "MicroSD Card Slot SCLK",
+      "to": "theSpeaker GPIO18",
+      "wire_color": "gray"
+    },
+    {
+      "from": "MicroSD Card Slot CS",
+      "to": "theSpeaker GPIO5",
+      "wire_color": "white"
+    },
+    {
+      "from": "MicroSD Card Slot GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Speaker Connector (8002A Amp) VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Speaker Connector (8002A Amp) GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "ST7735S LCD Display VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "ST7735S LCD Display MOSI",
+      "to": "environment GPIO7",
+      "wire_color": "orange"
+    },
+    {
+      "from": "ST7735S LCD Display MISO",
+      "to": "environment GPIO2",
+      "wire_color": "purple"
+    },
+    {
+      "from": "ST7735S LCD Display SCLK",
+      "to": "environment GPIO6",
+      "wire_color": "gray"
+    },
+    {
+      "from": "ST7735S LCD Display CS",
+      "to": "environment GPIO10",
+      "wire_color": "white"
+    },
+    {
+      "from": "ST7735S LCD Display GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Joystick Up VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Joystick Up DATA",
+      "to": "environment GPIO4",
+      "wire_color": "green"
+    },
+    {
+      "from": "Joystick Up GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Joystick Down VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Joystick Down DATA",
+      "to": "environment GPIO12",
+      "wire_color": "green"
+    },
+    {
+      "from": "Joystick Down GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Joystick Left VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Joystick Left DATA",
+      "to": "environment GPIO13",
+      "wire_color": "green"
+    },
+    {
+      "from": "Joystick Left GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Joystick Right VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Joystick Right DATA",
+      "to": "environment GPIO14",
+      "wire_color": "green"
+    },
+    {
+      "from": "Joystick Right GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Joystick Center/Press VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Joystick Center/Press DATA",
+      "to": "environment GPIO15",
+      "wire_color": "green"
+    },
+    {
+      "from": "Joystick Center/Press GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Boot Button VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Boot Button DATA",
+      "to": "environment GPIO16",
+      "wire_color": "green"
+    },
+    {
+      "from": "Boot Button GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "AHT10 Temperature/Humidity Sensor VCC",
+      "to": "environment 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "AHT10 Temperature/Humidity Sensor SDA",
+      "to": "environment GPIO8",
+      "wire_color": "blue"
+    },
+    {
+      "from": "AHT10 Temperature/Humidity Sensor SCL",
+      "to": "environment GPIO9",
+      "wire_color": "yellow"
+    },
+    {
+      "from": "AHT10 Temperature/Humidity Sensor GND",
+      "to": "environment GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "INMP441 I2S MEMS Microphone VCC",
+      "to": "motor_n_mike 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "INMP441 I2S MEMS Microphone GND",
+      "to": "motor_n_mike GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "Bluetooth Speaker VCC",
+      "to": "theSpeaker 3.3V",
+      "wire_color": "red"
+    },
+    {
+      "from": "Bluetooth Speaker GND",
+      "to": "theSpeaker GND",
+      "wire_color": "black"
+    },
+    {
+      "from": "environment GPIO7",
+      "to": "motor_n_mike GPIO7",
+      "wire_color": "orange",
+      "label": "SPI MOSI"
+    },
+    {
+      "from": "motor_n_mike GPIO2",
+      "to": "environment GPIO2",
+      "wire_color": "purple",
+      "label": "SPI MISO"
+    },
+    {
+      "from": "environment GPIO6",
+      "to": "motor_n_mike GPIO6",
+      "wire_color": "yellow",
+      "label": "SPI SCLK"
+    },
+    {
+      "from": "environment GPIO10",
+      "to": "motor_n_mike GPIO10",
+      "wire_color": "gray",
+      "label": "SPI CS/SS"
+    },
+    {
+      "from": "environment GND",
+      "to": "motor_n_mike GND",
+      "wire_color": "black",
+      "label": "Common Ground"
+    }
+  ],
+  "power_requirements": {
+    "voltage": "3.3V",
+    "current_max_ma": 200,
+    "power_source": "USB or 5V adapter"
+  }
+}

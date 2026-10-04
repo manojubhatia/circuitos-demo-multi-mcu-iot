@@ -1,0 +1,1258 @@
+{
+  "boards": [
+    {
+      "id": "mcu_0",
+      "name": "theSpeaker",
+      "mcu_type": "esp32",
+      "connections": [
+        {
+          "component": "ILI9341 TFT Display",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "ILI9341 TFT Display",
+          "component_pin": "MOSI",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO23",
+          "function": "spi",
+          "notes": "SPI MOSI"
+        },
+        {
+          "component": "ILI9341 TFT Display",
+          "component_pin": "MISO",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO19",
+          "function": "spi",
+          "notes": "SPI MISO"
+        },
+        {
+          "component": "ILI9341 TFT Display",
+          "component_pin": "SCLK",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO18",
+          "function": "spi",
+          "notes": "SPI SCLK"
+        },
+        {
+          "component": "ILI9341 TFT Display",
+          "component_pin": "CS",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO5",
+          "function": "spi",
+          "notes": "SPI CS"
+        },
+        {
+          "component": "ILI9341 TFT Display",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "XPT2046 Touch Controller",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "XPT2046 Touch Controller",
+          "component_pin": "MOSI",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO23",
+          "function": "spi",
+          "notes": "SPI MOSI"
+        },
+        {
+          "component": "XPT2046 Touch Controller",
+          "component_pin": "MISO",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO19",
+          "function": "spi",
+          "notes": "SPI MISO"
+        },
+        {
+          "component": "XPT2046 Touch Controller",
+          "component_pin": "SCLK",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO18",
+          "function": "spi",
+          "notes": "SPI SCLK"
+        },
+        {
+          "component": "XPT2046 Touch Controller",
+          "component_pin": "CS",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO5",
+          "function": "spi",
+          "notes": "SPI CS"
+        },
+        {
+          "component": "XPT2046 Touch Controller",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "RGB LED",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "RGB LED",
+          "component_pin": "DATA",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO4",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "RGB LED",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "LDR Light Sensor",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "LDR Light Sensor",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "MicroSD Card Slot",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "MicroSD Card Slot",
+          "component_pin": "MOSI",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO23",
+          "function": "spi",
+          "notes": "SPI MOSI"
+        },
+        {
+          "component": "MicroSD Card Slot",
+          "component_pin": "MISO",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO19",
+          "function": "spi",
+          "notes": "SPI MISO"
+        },
+        {
+          "component": "MicroSD Card Slot",
+          "component_pin": "SCLK",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO18",
+          "function": "spi",
+          "notes": "SPI SCLK"
+        },
+        {
+          "component": "MicroSD Card Slot",
+          "component_pin": "CS",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GPIO5",
+          "function": "spi",
+          "notes": "SPI CS"
+        },
+        {
+          "component": "MicroSD Card Slot",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Speaker Connector (8002A Amp)",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Speaker Connector (8002A Amp)",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Bluetooth Speaker",
+          "component_pin": "VCC",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Bluetooth Speaker",
+          "component_pin": "GND",
+          "board": "theSpeaker",
+          "board_id": "mcu_0",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        }
+      ],
+      "used_pins": [
+        "GPIO4",
+        "GPIO21",
+        "GPIO22"
+      ],
+      "available_pins": [
+        "GPIO0",
+        "GPIO2",
+        "GPIO5",
+        "GPIO12",
+        "GPIO13",
+        "GPIO14",
+        "GPIO15",
+        "GPIO16",
+        "GPIO17",
+        "GPIO18",
+        "GPIO19",
+        "GPIO23",
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "GPIO32",
+        "GPIO33"
+      ]
+    },
+    {
+      "id": "mcu_1",
+      "name": "environment",
+      "mcu_type": "esp32-c3",
+      "connections": [
+        {
+          "component": "ST7735S LCD Display",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "ST7735S LCD Display",
+          "component_pin": "MOSI",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO7",
+          "function": "spi",
+          "notes": "SPI MOSI"
+        },
+        {
+          "component": "ST7735S LCD Display",
+          "component_pin": "MISO",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO2",
+          "function": "spi",
+          "notes": "SPI MISO"
+        },
+        {
+          "component": "ST7735S LCD Display",
+          "component_pin": "SCLK",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO6",
+          "function": "spi",
+          "notes": "SPI SCLK"
+        },
+        {
+          "component": "ST7735S LCD Display",
+          "component_pin": "CS",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO10",
+          "function": "spi",
+          "notes": "SPI CS"
+        },
+        {
+          "component": "ST7735S LCD Display",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Joystick Up",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Joystick Up",
+          "component_pin": "DATA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO4",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "Joystick Up",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Joystick Down",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Joystick Down",
+          "component_pin": "DATA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO12",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "Joystick Down",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Joystick Left",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Joystick Left",
+          "component_pin": "DATA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO13",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "Joystick Left",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Joystick Right",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Joystick Right",
+          "component_pin": "DATA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO14",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "Joystick Right",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Joystick Center/Press",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Joystick Center/Press",
+          "component_pin": "DATA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO15",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "Joystick Center/Press",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "Boot Button",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "Boot Button",
+          "component_pin": "DATA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO16",
+          "function": "digital",
+          "notes": "GPIO DATA"
+        },
+        {
+          "component": "Boot Button",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "component": "AHT10 Temperature/Humidity Sensor",
+          "component_pin": "VCC",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "AHT10 Temperature/Humidity Sensor",
+          "component_pin": "SDA",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO8",
+          "function": "i2c",
+          "notes": "I2C SDA"
+        },
+        {
+          "component": "AHT10 Temperature/Humidity Sensor",
+          "component_pin": "SCL",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GPIO9",
+          "function": "i2c",
+          "notes": "I2C SCL"
+        },
+        {
+          "component": "AHT10 Temperature/Humidity Sensor",
+          "component_pin": "GND",
+          "board": "environment",
+          "board_id": "mcu_1",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "pin_name": "MOSI",
+          "from_board": "environment",
+          "from_board_id": "mcu_1",
+          "from_pin": "GPIO23",
+          "to_board": "motor_n_mike",
+          "to_board_id": "mcu_2",
+          "to_pin": "GPIO11",
+          "function": "spi",
+          "direction": "\u2192"
+        },
+        {
+          "pin_name": "MISO",
+          "from_board": "motor_n_mike",
+          "from_board_id": "mcu_2",
+          "from_pin": "GPIO12",
+          "to_board": "environment",
+          "to_board_id": "mcu_1",
+          "to_pin": "GPIO19",
+          "function": "spi",
+          "direction": "\u2192"
+        },
+        {
+          "pin_name": "SCLK",
+          "from_board": "environment",
+          "from_board_id": "mcu_1",
+          "from_pin": "GPIO18",
+          "to_board": "motor_n_mike",
+          "to_board_id": "mcu_2",
+          "to_pin": "GPIO13",
+          "function": "spi",
+          "direction": "\u2192"
+        },
+        {
+          "pin_name": "CS",
+          "from_board": "environment",
+          "from_board_id": "mcu_1",
+          "from_pin": "GPIO5",
+          "to_board": "motor_n_mike",
+          "to_board_id": "mcu_2",
+          "to_pin": "GPIO10",
+          "function": "spi",
+          "direction": "\u2192"
+        }
+      ],
+      "used_pins": [
+        "GPIO4",
+        "GPIO5",
+        "GPIO12",
+        "GPIO13",
+        "GPIO14",
+        "GPIO15",
+        "GPIO16",
+        "GPIO18",
+        "GPIO19",
+        "GPIO21",
+        "GPIO22",
+        "GPIO23"
+      ],
+      "available_pins": [
+        "GPIO0",
+        "GPIO2",
+        "GPIO17",
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "GPIO32",
+        "GPIO33"
+      ]
+    },
+    {
+      "id": "mcu_2",
+      "name": "motor_n_mike",
+      "mcu_type": "esp32c3",
+      "connections": [
+        {
+          "component": "INMP441 I2S MEMS Microphone",
+          "component_pin": "VCC",
+          "board": "motor_n_mike",
+          "board_id": "mcu_2",
+          "board_pin": "3.3V",
+          "function": "power",
+          "notes": "Power supply (3.3V)"
+        },
+        {
+          "component": "INMP441 I2S MEMS Microphone",
+          "component_pin": "GND",
+          "board": "motor_n_mike",
+          "board_id": "mcu_2",
+          "board_pin": "GND",
+          "function": "ground",
+          "notes": "Ground connection"
+        },
+        {
+          "pin_name": "MOSI",
+          "from_board": "environment",
+          "from_board_id": "mcu_1",
+          "from_pin": "GPIO23",
+          "to_board": "motor_n_mike",
+          "to_board_id": "mcu_2",
+          "to_pin": "GPIO11",
+          "function": "spi",
+          "direction": "\u2192"
+        },
+        {
+          "pin_name": "MISO",
+          "from_board": "motor_n_mike",
+          "from_board_id": "mcu_2",
+          "from_pin": "GPIO12",
+          "to_board": "environment",
+          "to_board_id": "mcu_1",
+          "to_pin": "GPIO19",
+          "function": "spi",
+          "direction": "\u2192"
+        },
+        {
+          "pin_name": "SCLK",
+          "from_board": "environment",
+          "from_board_id": "mcu_1",
+          "from_pin": "GPIO18",
+          "to_board": "motor_n_mike",
+          "to_board_id": "mcu_2",
+          "to_pin": "GPIO13",
+          "function": "spi",
+          "direction": "\u2192"
+        },
+        {
+          "pin_name": "CS",
+          "from_board": "environment",
+          "from_board_id": "mcu_1",
+          "from_pin": "GPIO5",
+          "to_board": "motor_n_mike",
+          "to_board_id": "mcu_2",
+          "to_pin": "GPIO10",
+          "function": "spi",
+          "direction": "\u2192"
+        }
+      ],
+      "used_pins": [
+        "GPIO18",
+        "GPIO19",
+        "GPIO5",
+        "GPIO23"
+      ],
+      "available_pins": [
+        "GPIO0",
+        "GPIO2",
+        "GPIO4",
+        "GPIO12",
+        "GPIO13",
+        "GPIO14",
+        "GPIO15",
+        "GPIO16",
+        "GPIO17",
+        "GPIO21",
+        "GPIO22",
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "GPIO32",
+        "GPIO33"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "component": "ILI9341 TFT Display",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "ILI9341 TFT Display",
+      "component_pin": "MOSI",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO23",
+      "function": "spi",
+      "notes": "SPI MOSI"
+    },
+    {
+      "component": "ILI9341 TFT Display",
+      "component_pin": "MISO",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO19",
+      "function": "spi",
+      "notes": "SPI MISO"
+    },
+    {
+      "component": "ILI9341 TFT Display",
+      "component_pin": "SCLK",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO18",
+      "function": "spi",
+      "notes": "SPI SCLK"
+    },
+    {
+      "component": "ILI9341 TFT Display",
+      "component_pin": "CS",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO5",
+      "function": "spi",
+      "notes": "SPI CS"
+    },
+    {
+      "component": "ILI9341 TFT Display",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "XPT2046 Touch Controller",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "XPT2046 Touch Controller",
+      "component_pin": "MOSI",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO23",
+      "function": "spi",
+      "notes": "SPI MOSI"
+    },
+    {
+      "component": "XPT2046 Touch Controller",
+      "component_pin": "MISO",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO19",
+      "function": "spi",
+      "notes": "SPI MISO"
+    },
+    {
+      "component": "XPT2046 Touch Controller",
+      "component_pin": "SCLK",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO18",
+      "function": "spi",
+      "notes": "SPI SCLK"
+    },
+    {
+      "component": "XPT2046 Touch Controller",
+      "component_pin": "CS",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO5",
+      "function": "spi",
+      "notes": "SPI CS"
+    },
+    {
+      "component": "XPT2046 Touch Controller",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "RGB LED",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "RGB LED",
+      "component_pin": "DATA",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO4",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "RGB LED",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "LDR Light Sensor",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "LDR Light Sensor",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "MicroSD Card Slot",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "MicroSD Card Slot",
+      "component_pin": "MOSI",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO23",
+      "function": "spi",
+      "notes": "SPI MOSI"
+    },
+    {
+      "component": "MicroSD Card Slot",
+      "component_pin": "MISO",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO19",
+      "function": "spi",
+      "notes": "SPI MISO"
+    },
+    {
+      "component": "MicroSD Card Slot",
+      "component_pin": "SCLK",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO18",
+      "function": "spi",
+      "notes": "SPI SCLK"
+    },
+    {
+      "component": "MicroSD Card Slot",
+      "component_pin": "CS",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GPIO5",
+      "function": "spi",
+      "notes": "SPI CS"
+    },
+    {
+      "component": "MicroSD Card Slot",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Speaker Connector (8002A Amp)",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Speaker Connector (8002A Amp)",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "ST7735S LCD Display",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "ST7735S LCD Display",
+      "component_pin": "MOSI",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO7",
+      "function": "spi",
+      "notes": "SPI MOSI"
+    },
+    {
+      "component": "ST7735S LCD Display",
+      "component_pin": "MISO",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO2",
+      "function": "spi",
+      "notes": "SPI MISO"
+    },
+    {
+      "component": "ST7735S LCD Display",
+      "component_pin": "SCLK",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO6",
+      "function": "spi",
+      "notes": "SPI SCLK"
+    },
+    {
+      "component": "ST7735S LCD Display",
+      "component_pin": "CS",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO10",
+      "function": "spi",
+      "notes": "SPI CS"
+    },
+    {
+      "component": "ST7735S LCD Display",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Joystick Up",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Joystick Up",
+      "component_pin": "DATA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO4",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "Joystick Up",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Joystick Down",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Joystick Down",
+      "component_pin": "DATA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO12",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "Joystick Down",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Joystick Left",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Joystick Left",
+      "component_pin": "DATA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO13",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "Joystick Left",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Joystick Right",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Joystick Right",
+      "component_pin": "DATA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO14",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "Joystick Right",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Joystick Center/Press",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Joystick Center/Press",
+      "component_pin": "DATA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO15",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "Joystick Center/Press",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Boot Button",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Boot Button",
+      "component_pin": "DATA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO16",
+      "function": "digital",
+      "notes": "GPIO DATA"
+    },
+    {
+      "component": "Boot Button",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "AHT10 Temperature/Humidity Sensor",
+      "component_pin": "VCC",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "AHT10 Temperature/Humidity Sensor",
+      "component_pin": "SDA",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO8",
+      "function": "i2c",
+      "notes": "I2C SDA"
+    },
+    {
+      "component": "AHT10 Temperature/Humidity Sensor",
+      "component_pin": "SCL",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GPIO9",
+      "function": "i2c",
+      "notes": "I2C SCL"
+    },
+    {
+      "component": "AHT10 Temperature/Humidity Sensor",
+      "component_pin": "GND",
+      "board": "environment",
+      "board_id": "mcu_1",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "INMP441 I2S MEMS Microphone",
+      "component_pin": "VCC",
+      "board": "motor_n_mike",
+      "board_id": "mcu_2",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "INMP441 I2S MEMS Microphone",
+      "component_pin": "GND",
+      "board": "motor_n_mike",
+      "board_id": "mcu_2",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "component": "Bluetooth Speaker",
+      "component_pin": "VCC",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "3.3V",
+      "function": "power",
+      "notes": "Power supply (3.3V)"
+    },
+    {
+      "component": "Bluetooth Speaker",
+      "component_pin": "GND",
+      "board": "theSpeaker",
+      "board_id": "mcu_0",
+      "board_pin": "GND",
+      "function": "ground",
+      "notes": "Ground connection"
+    },
+    {
+      "pin_name": "MOSI",
+      "from_board": "environment",
+      "from_board_id": "mcu_1",
+      "from_pin": "GPIO23",
+      "to_board": "motor_n_mike",
+      "to_board_id": "mcu_2",
+      "to_pin": "GPIO11",
+      "function": "spi",
+      "direction": "\u2192"
+    },
+    {
+      "pin_name": "MISO",
+      "from_board": "motor_n_mike",
+      "from_board_id": "mcu_2",
+      "from_pin": "GPIO12",
+      "to_board": "environment",
+      "to_board_id": "mcu_1",
+      "to_pin": "GPIO19",
+      "function": "spi",
+      "direction": "\u2192"
+    },
+    {
+      "pin_name": "SCLK",
+      "from_board": "environment",
+      "from_board_id": "mcu_1",
+      "from_pin": "GPIO18",
+      "to_board": "motor_n_mike",
+      "to_board_id": "mcu_2",
+      "to_pin": "GPIO13",
+      "function": "spi",
+      "direction": "\u2192"
+    },
+    {
+      "pin_name": "CS",
+      "from_board": "environment",
+      "from_board_id": "mcu_1",
+      "from_pin": "GPIO5",
+      "to_board": "motor_n_mike",
+      "to_board_id": "mcu_2",
+      "to_pin": "GPIO10",
+      "function": "spi",
+      "direction": "\u2192"
+    }
+  ],
+  "board": "theSpeaker"
+}

@@ -1,0 +1,347 @@
+{
+  "configs": {
+    "board_0": {
+      "resolution": {
+        "width": 240,
+        "height": 320
+      },
+      "displayType": "ILI9341",
+      "screens": [
+        {
+          "id": "screen_1",
+          "name": "Main",
+          "widgets": [
+            {
+              "id": "widget_auto_0",
+              "type": "value",
+              "x": 2,
+              "y": 2,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "environment_aht10_temperature",
+                "format": "%.1f",
+                "unit": "celsius",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_1",
+              "type": "value",
+              "x": 49,
+              "y": 2,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "environment_aht10_humidity",
+                "format": "%.1f",
+                "unit": "percent",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_2",
+              "type": "value",
+              "x": 96,
+              "y": 2,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_audio_samples",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_3",
+              "type": "value",
+              "x": 143,
+              "y": 2,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_audio_level",
+                "format": "%.1f",
+                "unit": "dB",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_4",
+              "type": "value",
+              "x": 190,
+              "y": 2,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_peak_amplitude",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_5",
+              "type": "value",
+              "x": 2,
+              "y": 160,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_rms_level",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_6",
+              "type": "value",
+              "x": 49,
+              "y": 160,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_is_clipping",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_7",
+              "type": "value",
+              "x": 96,
+              "y": 160,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "thespeaker_bluetoothspeaker_connected",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_8",
+              "type": "value",
+              "x": 143,
+              "y": 160,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "thespeaker_bluetoothspeaker_device_name",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_9",
+              "type": "value",
+              "x": 190,
+              "y": 160,
+              "width": 45,
+              "height": 157,
+              "properties": {
+                "dataField": "thespeaker_bluetoothspeaker_rssi",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            }
+          ]
+        }
+      ],
+      "activeScreenId": "screen_1",
+      "shape": "rectangle",
+      "targetBoardId": "board_0",
+      "targetBoardName": "theSpeaker (Built-in Display)",
+      "auto_generated": true,
+      "inputMode": "touch"
+    },
+    "board_1": {
+      "resolution": {
+        "width": 160,
+        "height": 80
+      },
+      "displayType": "ST7735S",
+      "screens": [
+        {
+          "id": "screen_1",
+          "name": "Main",
+          "widgets": [
+            {
+              "id": "widget_auto_0",
+              "type": "value",
+              "x": 2,
+              "y": 2,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "environment_aht10_temperature",
+                "format": "%.1f",
+                "unit": "celsius",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_1",
+              "type": "value",
+              "x": 54,
+              "y": 2,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "environment_aht10_humidity",
+                "format": "%.1f",
+                "unit": "percent",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_2",
+              "type": "value",
+              "x": 106,
+              "y": 2,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_audio_samples",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_3",
+              "type": "value",
+              "x": 2,
+              "y": 21,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_audio_level",
+                "format": "%.1f",
+                "unit": "dB",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_4",
+              "type": "value",
+              "x": 54,
+              "y": 21,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_peak_amplitude",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_5",
+              "type": "value",
+              "x": 106,
+              "y": 21,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_rms_level",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_6",
+              "type": "value",
+              "x": 2,
+              "y": 40,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "motor_n_mike_inmp441_is_clipping",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_7",
+              "type": "value",
+              "x": 54,
+              "y": 40,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "thespeaker_bluetoothspeaker_connected",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_8",
+              "type": "value",
+              "x": 106,
+              "y": 40,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "thespeaker_bluetoothspeaker_device_name",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            },
+            {
+              "id": "widget_auto_9",
+              "type": "value",
+              "x": 2,
+              "y": 59,
+              "width": 50,
+              "height": 18,
+              "properties": {
+                "dataField": "thespeaker_bluetoothspeaker_rssi",
+                "format": "%.1f",
+                "unit": "",
+                "fontSize": 10,
+                "color": "#00FF00"
+              }
+            }
+          ]
+        }
+      ],
+      "activeScreenId": "screen_1",
+      "shape": "rectangle",
+      "targetBoardId": "board_1",
+      "targetBoardName": "environment (Built-in Display)",
+      "auto_generated": true
+    }
+  },
+  "currentBoardId": "board_0",
+  "saved_at": "2026-09-29T12:15:48.938052"
+}

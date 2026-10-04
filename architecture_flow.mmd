@@ -1,0 +1,36 @@
+graph LR
+    subgraph Frontend["Frontend (React)"]
+        DASH[Dashboard]
+        PV[Protocol Viewer]
+        WS_FE[WebSocket Client]
+    end
+    subgraph Backend["Backend (FastAPI)"]
+        HTTP_RX[HTTP Receiver]
+        PD[Protocol Decoder]
+        CD[Command Dispatcher]
+        WS_BE[WebSocket Server]
+    end
+    subgraph board_0["theSpeaker"]
+        TEL_board_0[Telemetry]
+        TCP_board_0[Transport]
+    end
+    subgraph board_1["environment"]
+        C_board_1_0["AHT10 Temperature/Humidity Sensor"]
+        TEL_board_1[Telemetry]
+        TCP_board_1[Transport]
+    end
+    subgraph board_5["motor_n_mike"]
+        C_board_5_0["INMP441 I2S MEMS Microphone"]
+        TEL_board_5[Telemetry]
+        TCP_board_5[Transport]
+    end
+    TEL_board_1 -->|HTTP JSON| HTTP_RX
+    TEL_board_1 -->|HTTP JSON| HTTP_RX
+    HTTP_RX --> PD
+    PD --> WS_BE
+    WS_BE --> WS_FE
+    WS_FE --> DASH
+    TCP_board_1 -->|"TCP Wire Protocol"| TCP_board_0
+    TCP_board_1 -->|SPI Bus| TCP_board_5
+    WS_FE -->|request_stream| WS_BE
+    WS_BE --> CD

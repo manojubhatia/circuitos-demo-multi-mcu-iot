@@ -1,0 +1,407 @@
+{
+  "project_name": "theSpeaker (3 boards)",
+  "description": "Project with 3 boards",
+  "generated_at": "2026-09-29T13:56:58.421979",
+  "generation_method": "instant_template",
+  "goals": [
+    "Read data from 5 sensor(s)",
+    "Communicate between 3 microcontrollers via TCP, SPI, HTTP, BLUETOOTH, I2S, REST_API, I2C",
+    "Stream sensor data to backend server",
+    "Display data on web dashboard"
+  ],
+  "hardware": {
+    "board": "theSpeaker",
+    "components": [
+      {
+        "name": "ILI9341 TFT Display",
+        "type": "display",
+        "purpose": "ILI9341 TFT Display",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "XPT2046 Touch Controller",
+        "type": "input",
+        "purpose": "XPT2046 Touch Controller",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "RGB LED",
+        "type": "actuator",
+        "purpose": "RGB LED",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "LDR Light Sensor",
+        "type": "sensor",
+        "purpose": "LDR Light Sensor",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "MicroSD Card Slot",
+        "type": "sensor",
+        "purpose": "MicroSD Card Slot",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Speaker Connector (8002A Amp)",
+        "type": "sensor",
+        "purpose": "Speaker Connector (8002A Amp)",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "ST7735S LCD Display",
+        "type": "display",
+        "purpose": "ST7735S LCD Display",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Joystick Up",
+        "type": "input",
+        "purpose": "Joystick Up",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Joystick Down",
+        "type": "input",
+        "purpose": "Joystick Down",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Joystick Left",
+        "type": "input",
+        "purpose": "Joystick Left",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Joystick Right",
+        "type": "input",
+        "purpose": "Joystick Right",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Joystick Center/Press",
+        "type": "input",
+        "purpose": "Joystick Center/Press",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Boot Button",
+        "type": "input",
+        "purpose": "Boot Button",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "AHT10 Temperature/Humidity Sensor",
+        "type": "sensor",
+        "purpose": "AHT10 Temperature/Humidity Sensor",
+        "quantity": 1,
+        "data_produces": [
+          "temperature",
+          "humidity"
+        ],
+        "data_consumes": []
+      },
+      {
+        "name": "INMP441 I2S MEMS Microphone",
+        "type": "sensor",
+        "purpose": "High-performance, low power, digital output MEMS microphone with I2S interface",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      },
+      {
+        "name": "Bluetooth Speaker",
+        "type": "actuator",
+        "purpose": "Bluetooth audio speaker for wireless audio streaming via A2DP profile",
+        "quantity": 1,
+        "data_produces": [],
+        "data_consumes": []
+      }
+    ]
+  },
+  "multi_mcu": true,
+  "mcu_count": 3,
+  "mcus": [
+    {
+      "id": "mcu_0",
+      "type": "esp32",
+      "board_name": "theSpeaker",
+      "role": "master",
+      "components": [],
+      "responsibilities": [],
+      "wifi_enabled": true
+    },
+    {
+      "id": "mcu_1",
+      "type": "esp32-c3",
+      "board_name": "environment",
+      "role": "slave",
+      "components": [],
+      "responsibilities": [],
+      "wifi_enabled": true
+    },
+    {
+      "id": "mcu_2",
+      "type": "esp32c3",
+      "board_name": "motor_n_mike",
+      "role": "slave",
+      "components": [],
+      "responsibilities": [],
+      "wifi_enabled": true
+    }
+  ],
+  "inter_mcu_protocol": {
+    "type": "I2C",
+    "description": "Communication between MCUs via I2C"
+  },
+  "boards": [
+    {
+      "id": "board_0",
+      "name": "theSpeaker",
+      "mcu_type": "esp32",
+      "role": "master",
+      "mcu_id": 0,
+      "build_system": "esp_idf",
+      "ecosystem": "esp_idf",
+      "language": "cpp"
+    },
+    {
+      "id": "board_1",
+      "name": "environment",
+      "mcu_type": "esp32-c3",
+      "role": "slave",
+      "mcu_id": 1,
+      "build_system": "esp_idf",
+      "ecosystem": "esp_idf",
+      "language": "cpp"
+    },
+    {
+      "id": "board_5",
+      "name": "motor_n_mike",
+      "mcu_type": "esp32c3",
+      "role": "slave",
+      "mcu_id": 2,
+      "build_system": "esp_idf",
+      "ecosystem": "esp_idf",
+      "language": "cpp"
+    }
+  ],
+  "build_system": "esp_idf",
+  "language": "cpp",
+  "components": [
+    {
+      "id": "integrated_board_0_builtin-display",
+      "name": "ILI9341 TFT Display",
+      "interface": "spi",
+      "connected_to": "board_0"
+    },
+    {
+      "id": "integrated_board_0_builtin-touch",
+      "name": "XPT2046 Touch Controller",
+      "interface": "spi",
+      "connected_to": "board_0"
+    },
+    {
+      "id": "integrated_board_0_builtin-rgb-led",
+      "name": "RGB LED",
+      "interface": "gpio",
+      "connected_to": "board_0"
+    },
+    {
+      "id": "integrated_board_0_builtin-ldr",
+      "name": "LDR Light Sensor",
+      "interface": "adc",
+      "connected_to": "board_0"
+    },
+    {
+      "id": "integrated_board_0_builtin-sdcard",
+      "name": "MicroSD Card Slot",
+      "interface": "spi",
+      "connected_to": "board_0"
+    },
+    {
+      "id": "integrated_board_0_builtin-speaker",
+      "name": "Speaker Connector (8002A Amp)",
+      "interface": "dac",
+      "connected_to": "board_0"
+    },
+    {
+      "id": "integrated_board_1_builtin-display",
+      "name": "ST7735S LCD Display",
+      "interface": "spi",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "integrated_board_1_joystick-up",
+      "name": "Joystick Up",
+      "interface": "gpio",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "integrated_board_1_joystick-down",
+      "name": "Joystick Down",
+      "interface": "gpio",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "integrated_board_1_joystick-left",
+      "name": "Joystick Left",
+      "interface": "gpio",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "integrated_board_1_joystick-right",
+      "name": "Joystick Right",
+      "interface": "gpio",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "integrated_board_1_joystick-center",
+      "name": "Joystick Center/Press",
+      "interface": "gpio",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "integrated_board_1_boot-button",
+      "name": "Boot Button",
+      "interface": "gpio",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "component_2",
+      "name": "AHT10 Temperature/Humidity Sensor",
+      "interface": "i2c",
+      "connected_to": "board_1"
+    },
+    {
+      "id": "component_3",
+      "name": "INMP441 I2S MEMS Microphone",
+      "interface": "i2s",
+      "connected_to": "board_5"
+    },
+    {
+      "id": "component_4",
+      "name": "Bluetooth Speaker",
+      "interface": "bluetooth",
+      "connected_to": "board_0"
+    }
+  ],
+  "connections": [
+    {
+      "id": "edge_0",
+      "interface": "i2c",
+      "from": "component_2",
+      "to": "board_1"
+    },
+    {
+      "id": "edge_1",
+      "interface": "http",
+      "from": "board_1",
+      "to": "board_0"
+    },
+    {
+      "id": "edge_2",
+      "interface": "tcp",
+      "from": "board_1",
+      "to": "board_0"
+    },
+    {
+      "id": "edge_3",
+      "interface": "http",
+      "from": "board_1",
+      "to": "system_backend_3"
+    },
+    {
+      "id": "edge_4",
+      "interface": "rest_api",
+      "from": "system_backend_3",
+      "to": "system_frontend_4"
+    },
+    {
+      "id": "edge_7",
+      "interface": "bluetooth",
+      "from": "board_0",
+      "to": "component_4"
+    },
+    {
+      "id": "edge_8",
+      "interface": "bluetooth",
+      "from": "board_0",
+      "to": "component_4"
+    },
+    {
+      "id": "edge_9",
+      "interface": "i2s",
+      "from": "component_3",
+      "to": "board_5"
+    },
+    {
+      "id": "edge_10",
+      "interface": "tcp",
+      "from": "board_5",
+      "to": "system_backend_3"
+    },
+    {
+      "id": "edge_13",
+      "interface": "spi",
+      "from": "board_1",
+      "to": "board_5"
+    },
+    {
+      "id": "edge_14",
+      "interface": "bluetooth",
+      "from": "board_0",
+      "to": "component_4"
+    }
+  ],
+  "pin_assignments": {
+    "i2c_sda": 8,
+    "i2c_scl": 9,
+    "uart_tx": 4,
+    "uart_rx": 5
+  },
+  "system_components": {
+    "device": {
+      "required": true,
+      "purpose": "Read sensors and communicate"
+    },
+    "backend": {
+      "required": true,
+      "purpose": "Data storage and API"
+    },
+    "frontend": {
+      "required": true,
+      "purpose": "Data visualization"
+    }
+  },
+  "features": {
+    "backend": true,
+    "frontend": true
+  }
+}

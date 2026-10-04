@@ -1,0 +1,954 @@
+{
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "mcu_0",
+      "type": "board",
+      "label": "theSpeaker (ESP32 DevKit)",
+      "position": {
+        "x": 150,
+        "y": 150
+      },
+      "pins": [
+        "GND",
+        "3.3V",
+        "5V",
+        "GPIO17",
+        "GPIO16",
+        "GPIO21",
+        "GPIO22",
+        "GPIO23",
+        "GPIO19",
+        "GPIO18",
+        "GPIO5"
+      ],
+      "connected_to_mcu": "mcu_0",
+      "mcu_type": "ESP32 DevKit",
+      "board_name": "theSpeaker"
+    },
+    {
+      "id": "mcu_1",
+      "type": "board",
+      "label": "environment (ESP32-C3)",
+      "position": {
+        "x": 550,
+        "y": 150
+      },
+      "pins": [
+        "GND",
+        "3.3V",
+        "5V",
+        "GPIO17",
+        "GPIO16",
+        "GPIO21",
+        "GPIO22",
+        "GPIO23",
+        "GPIO19",
+        "GPIO18",
+        "GPIO5"
+      ],
+      "connected_to_mcu": "mcu_1",
+      "mcu_type": "ESP32-C3",
+      "board_name": "environment"
+    },
+    {
+      "id": "mcu_2",
+      "type": "board",
+      "label": "motor_n_mike (ESP32 DevKit)",
+      "position": {
+        "x": 950,
+        "y": 150
+      },
+      "pins": [
+        "GND",
+        "3.3V",
+        "5V",
+        "GPIO17",
+        "GPIO16",
+        "GPIO21",
+        "GPIO22",
+        "GPIO23",
+        "GPIO19",
+        "GPIO18",
+        "GPIO5"
+      ],
+      "connected_to_mcu": "mcu_2",
+      "mcu_type": "ESP32 DevKit",
+      "board_name": "motor_n_mike"
+    },
+    {
+      "id": "comp_0",
+      "type": "display",
+      "label": "ILI9341 TFT Display",
+      "position": {
+        "x": 150,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "MOSI",
+        "MISO",
+        "SCLK",
+        "CS"
+      ],
+      "connected_to_mcu": "mcu_0"
+    },
+    {
+      "id": "comp_1",
+      "type": "input",
+      "label": "XPT2046 Touch Controller",
+      "position": {
+        "x": 350,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "MOSI",
+        "MISO",
+        "SCLK",
+        "CS"
+      ],
+      "connected_to_mcu": "mcu_0"
+    },
+    {
+      "id": "comp_2",
+      "type": "actuator",
+      "label": "RGB LED",
+      "position": {
+        "x": 550,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_0"
+    },
+    {
+      "id": "comp_3",
+      "type": "sensor",
+      "label": "LDR Light Sensor",
+      "position": {
+        "x": 750,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_0"
+    },
+    {
+      "id": "comp_4",
+      "type": "sensor",
+      "label": "MicroSD Card Slot",
+      "position": {
+        "x": 950,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "MOSI",
+        "MISO",
+        "SCLK",
+        "CS"
+      ],
+      "connected_to_mcu": "mcu_0"
+    },
+    {
+      "id": "comp_5",
+      "type": "sensor",
+      "label": "Speaker Connector (8002A Amp)",
+      "position": {
+        "x": 1150,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_0"
+    },
+    {
+      "id": "comp_6",
+      "type": "display",
+      "label": "ST7735S LCD Display",
+      "position": {
+        "x": 1350,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "MOSI",
+        "MISO",
+        "SCLK",
+        "CS"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_7",
+      "type": "input",
+      "label": "Joystick Up",
+      "position": {
+        "x": 1550,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_8",
+      "type": "input",
+      "label": "Joystick Down",
+      "position": {
+        "x": 1750,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_9",
+      "type": "input",
+      "label": "Joystick Left",
+      "position": {
+        "x": 1950,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_10",
+      "type": "input",
+      "label": "Joystick Right",
+      "position": {
+        "x": 2150,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_11",
+      "type": "input",
+      "label": "Joystick Center/Press",
+      "position": {
+        "x": 2350,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_12",
+      "type": "input",
+      "label": "Boot Button",
+      "position": {
+        "x": 2550,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_13",
+      "type": "sensor",
+      "label": "AHT10 Temperature/Humidity Sensor",
+      "position": {
+        "x": 2750,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "SDA",
+        "SCL"
+      ],
+      "connected_to_mcu": "mcu_1"
+    },
+    {
+      "id": "comp_14",
+      "type": "sensor",
+      "label": "INMP441 I2S MEMS Microphone",
+      "position": {
+        "x": 2950,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_2"
+    },
+    {
+      "id": "comp_15",
+      "type": "actuator",
+      "label": "Bluetooth Speaker",
+      "position": {
+        "x": 3150,
+        "y": 450
+      },
+      "pins": [
+        "VCC",
+        "GND",
+        "DATA"
+      ],
+      "connected_to_mcu": "mcu_0"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_0_sda",
+      "source": "comp_13",
+      "target": "mcu_1",
+      "sourceHandle": "GPIO21",
+      "targetHandle": "GPIO8",
+      "type": "i2c",
+      "label": "I2C SDA"
+    },
+    {
+      "id": "edge_0_scl",
+      "source": "comp_13",
+      "target": "mcu_1",
+      "sourceHandle": "GPIO22",
+      "targetHandle": "GPIO9",
+      "type": "i2c",
+      "label": "I2C SCL"
+    },
+    {
+      "id": "edge_13_mosi",
+      "source": "mcu_1",
+      "target": "mcu_2",
+      "sourceHandle": "GPIO23",
+      "targetHandle": "GPIO11",
+      "type": "spi",
+      "label": "SPI MOSI"
+    },
+    {
+      "id": "edge_13_miso",
+      "source": "mcu_2",
+      "target": "mcu_1",
+      "sourceHandle": "GPIO12",
+      "targetHandle": "GPIO19",
+      "type": "spi",
+      "label": "SPI MISO"
+    },
+    {
+      "id": "edge_13_sclk",
+      "source": "mcu_1",
+      "target": "mcu_2",
+      "sourceHandle": "GPIO18",
+      "targetHandle": "GPIO13",
+      "type": "spi",
+      "label": "SPI SCLK"
+    },
+    {
+      "id": "edge_13_cs",
+      "source": "mcu_1",
+      "target": "mcu_2",
+      "sourceHandle": "GPIO5",
+      "targetHandle": "GPIO10",
+      "type": "spi",
+      "label": "SPI CS"
+    },
+    {
+      "id": "comp_0_vcc",
+      "source": "comp_0",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_0_gnd",
+      "source": "comp_0",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_0_mosi",
+      "source": "comp_0",
+      "target": "mcu_0",
+      "sourceHandle": "MOSI",
+      "targetHandle": "GPIO23",
+      "type": "spi",
+      "label": "SPI MOSI"
+    },
+    {
+      "id": "comp_0_miso",
+      "source": "comp_0",
+      "target": "mcu_0",
+      "sourceHandle": "MISO",
+      "targetHandle": "GPIO19",
+      "type": "spi",
+      "label": "SPI MISO"
+    },
+    {
+      "id": "comp_0_sclk",
+      "source": "comp_0",
+      "target": "mcu_0",
+      "sourceHandle": "SCLK",
+      "targetHandle": "GPIO18",
+      "type": "spi",
+      "label": "SPI SCLK"
+    },
+    {
+      "id": "comp_0_cs",
+      "source": "comp_0",
+      "target": "mcu_0",
+      "sourceHandle": "CS",
+      "targetHandle": "GPIO5",
+      "type": "spi",
+      "label": "SPI CS"
+    },
+    {
+      "id": "comp_1_vcc",
+      "source": "comp_1",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_1_gnd",
+      "source": "comp_1",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_1_mosi",
+      "source": "comp_1",
+      "target": "mcu_0",
+      "sourceHandle": "MOSI",
+      "targetHandle": "GPIO23",
+      "type": "spi",
+      "label": "SPI MOSI"
+    },
+    {
+      "id": "comp_1_miso",
+      "source": "comp_1",
+      "target": "mcu_0",
+      "sourceHandle": "MISO",
+      "targetHandle": "GPIO19",
+      "type": "spi",
+      "label": "SPI MISO"
+    },
+    {
+      "id": "comp_1_sclk",
+      "source": "comp_1",
+      "target": "mcu_0",
+      "sourceHandle": "SCLK",
+      "targetHandle": "GPIO18",
+      "type": "spi",
+      "label": "SPI SCLK"
+    },
+    {
+      "id": "comp_1_cs",
+      "source": "comp_1",
+      "target": "mcu_0",
+      "sourceHandle": "CS",
+      "targetHandle": "GPIO5",
+      "type": "spi",
+      "label": "SPI CS"
+    },
+    {
+      "id": "comp_2_vcc",
+      "source": "comp_2",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_2_gnd",
+      "source": "comp_2",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_2_data",
+      "source": "comp_2",
+      "target": "mcu_0",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO4",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_3_vcc",
+      "source": "comp_3",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_3_gnd",
+      "source": "comp_3",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_4_vcc",
+      "source": "comp_4",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_4_gnd",
+      "source": "comp_4",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_4_mosi",
+      "source": "comp_4",
+      "target": "mcu_0",
+      "sourceHandle": "MOSI",
+      "targetHandle": "GPIO23",
+      "type": "spi",
+      "label": "SPI MOSI"
+    },
+    {
+      "id": "comp_4_miso",
+      "source": "comp_4",
+      "target": "mcu_0",
+      "sourceHandle": "MISO",
+      "targetHandle": "GPIO19",
+      "type": "spi",
+      "label": "SPI MISO"
+    },
+    {
+      "id": "comp_4_sclk",
+      "source": "comp_4",
+      "target": "mcu_0",
+      "sourceHandle": "SCLK",
+      "targetHandle": "GPIO18",
+      "type": "spi",
+      "label": "SPI SCLK"
+    },
+    {
+      "id": "comp_4_cs",
+      "source": "comp_4",
+      "target": "mcu_0",
+      "sourceHandle": "CS",
+      "targetHandle": "GPIO5",
+      "type": "spi",
+      "label": "SPI CS"
+    },
+    {
+      "id": "comp_5_vcc",
+      "source": "comp_5",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_5_gnd",
+      "source": "comp_5",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_6_vcc",
+      "source": "comp_6",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_6_gnd",
+      "source": "comp_6",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_6_mosi",
+      "source": "comp_6",
+      "target": "mcu_1",
+      "sourceHandle": "MOSI",
+      "targetHandle": "GPIO7",
+      "type": "spi",
+      "label": "SPI MOSI"
+    },
+    {
+      "id": "comp_6_miso",
+      "source": "comp_6",
+      "target": "mcu_1",
+      "sourceHandle": "MISO",
+      "targetHandle": "GPIO2",
+      "type": "spi",
+      "label": "SPI MISO"
+    },
+    {
+      "id": "comp_6_sclk",
+      "source": "comp_6",
+      "target": "mcu_1",
+      "sourceHandle": "SCLK",
+      "targetHandle": "GPIO6",
+      "type": "spi",
+      "label": "SPI SCLK"
+    },
+    {
+      "id": "comp_6_cs",
+      "source": "comp_6",
+      "target": "mcu_1",
+      "sourceHandle": "CS",
+      "targetHandle": "GPIO10",
+      "type": "spi",
+      "label": "SPI CS"
+    },
+    {
+      "id": "comp_7_vcc",
+      "source": "comp_7",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_7_gnd",
+      "source": "comp_7",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_7_data",
+      "source": "comp_7",
+      "target": "mcu_1",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO4",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_8_vcc",
+      "source": "comp_8",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_8_gnd",
+      "source": "comp_8",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_8_data",
+      "source": "comp_8",
+      "target": "mcu_1",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO12",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_9_vcc",
+      "source": "comp_9",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_9_gnd",
+      "source": "comp_9",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_9_data",
+      "source": "comp_9",
+      "target": "mcu_1",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO13",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_10_vcc",
+      "source": "comp_10",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_10_gnd",
+      "source": "comp_10",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_10_data",
+      "source": "comp_10",
+      "target": "mcu_1",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO14",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_11_vcc",
+      "source": "comp_11",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_11_gnd",
+      "source": "comp_11",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_11_data",
+      "source": "comp_11",
+      "target": "mcu_1",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO15",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_12_vcc",
+      "source": "comp_12",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_12_gnd",
+      "source": "comp_12",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_12_data",
+      "source": "comp_12",
+      "target": "mcu_1",
+      "sourceHandle": "DATA",
+      "targetHandle": "GPIO16",
+      "type": "gpio",
+      "label": "Data"
+    },
+    {
+      "id": "comp_13_vcc",
+      "source": "comp_13",
+      "target": "mcu_1",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_13_gnd",
+      "source": "comp_13",
+      "target": "mcu_1",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_13_sda",
+      "source": "comp_13",
+      "target": "mcu_1",
+      "sourceHandle": "SDA",
+      "targetHandle": "GPIO8",
+      "type": "i2c",
+      "label": "I2C SDA"
+    },
+    {
+      "id": "comp_13_scl",
+      "source": "comp_13",
+      "target": "mcu_1",
+      "sourceHandle": "SCL",
+      "targetHandle": "GPIO9",
+      "type": "i2c",
+      "label": "I2C SCL"
+    },
+    {
+      "id": "comp_14_vcc",
+      "source": "comp_14",
+      "target": "mcu_2",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_14_gnd",
+      "source": "comp_14",
+      "target": "mcu_2",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    },
+    {
+      "id": "comp_15_vcc",
+      "source": "comp_15",
+      "target": "mcu_0",
+      "sourceHandle": "VCC",
+      "targetHandle": "3.3V",
+      "type": "power",
+      "label": "Power"
+    },
+    {
+      "id": "comp_15_gnd",
+      "source": "comp_15",
+      "target": "mcu_0",
+      "sourceHandle": "GND",
+      "targetHandle": "GND",
+      "type": "ground",
+      "label": "Ground"
+    }
+  ],
+  "hardware_notes": [
+    {
+      "protocol": "I2C",
+      "type": "pull_up",
+      "message": "I2C bus requires pull-up resistors on SDA and SCL lines. Use 4.7k\u03a9 for standard mode (100kHz) or 2.2k\u03a9 for fast mode (400kHz). Many breakout boards include built-in pull-ups; only add external ones if the bus is not functional without them.",
+      "components": [
+        {
+          "name": "R_SDA",
+          "value": "4.7k\u03a9",
+          "type": "resistor",
+          "connection": "SDA to VCC"
+        },
+        {
+          "name": "R_SCL",
+          "value": "4.7k\u03a9",
+          "type": "resistor",
+          "connection": "SCL to VCC"
+        }
+      ]
+    },
+    {
+      "protocol": "SPI",
+      "type": "cs_pull_up",
+      "message": "With multiple SPI devices, add 10k\u03a9 pull-up resistors on each CS line to prevent floating when not selected.",
+      "components": [
+        {
+          "name": "R_CS1",
+          "value": "10k\u03a9",
+          "type": "resistor",
+          "connection": "CS1 to VCC"
+        },
+        {
+          "name": "R_CS2",
+          "value": "10k\u03a9",
+          "type": "resistor",
+          "connection": "CS2 to VCC"
+        },
+        {
+          "name": "R_CS3",
+          "value": "10k\u03a9",
+          "type": "resistor",
+          "connection": "CS3 to VCC"
+        },
+        {
+          "name": "R_CS4",
+          "value": "10k\u03a9",
+          "type": "resistor",
+          "connection": "CS4 to VCC"
+        }
+      ]
+    }
+  ]
+}

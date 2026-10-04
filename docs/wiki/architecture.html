@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture — 20260929_135652 Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1a1a1a;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent: #f59e0b;
+            --accent-hover: #f97316;
+            --border: #27272a;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --code-bg: #18181b;
+            --nav-width: 260px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        nav.sidebar {
+            width: var(--nav-width);
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav.sidebar .logo {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        nav.sidebar .logo h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        nav.sidebar .logo p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        nav.sidebar ul {
+            list-style: none;
+        }
+
+        nav.sidebar li a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.15s;
+            border-left: 3px solid transparent;
+        }
+
+        nav.sidebar li a:hover {
+            color: var(--text-primary);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        nav.sidebar li a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        nav.sidebar .section-title {
+            padding: 1rem 1.5rem 0.3rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        main {
+            margin-left: var(--nav-width);
+            padding: 2rem 3rem;
+            max-width: 1200px;
+            width: calc(100% - var(--nav-width));
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-primary); }
+        h3 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        td { color: var(--text-secondary); }
+
+        code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-blue { background: rgba(59, 130, 246, 0.15); color: #93c5fd; }
+        .badge-green { background: rgba(34, 197, 94, 0.15); color: #86efac; }
+        .badge-yellow { background: rgba(245, 158, 11, 0.15); color: #fcd34d; }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: #fca5a5; }
+        .badge-orange { background: rgba(249, 115, 22, 0.15); color: #fdba74; }
+
+        .mermaid {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+            min-width: 800px;
+        }
+
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Scrollbar matching app */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+        @media (max-width: 768px) {
+            nav.sidebar { display: none; }
+            main { margin-left: 0; padding: 1rem; }
+        }
+
+        /* Hide sidebar when embedded in iframe (workspace Docs tab) */
+        .embedded nav.sidebar { display: none; }
+        .embedded main { margin-left: 0; padding: 1.5rem; }
+        .embedded .breadcrumb { display: none; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        if (window.self !== window.top) {
+            document.documentElement.classList.add('embedded');
+        }
+    </script>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>20260929_135652</h2>
+            <p>Project Documentation</p>
+        </div>
+        <ul>
+            <li><a href="index.html" >Overview</a></li>
+            <li><a href="architecture.html" class="active">Architecture</a></li>
+            
+            <div class="section-title">Hardware</div>
+            <li><a href="hardware/index.html" >Hardware Overview</a></li>
+            <li><a href="hardware/wiring.html" >Wiring Diagram</a></li>
+            <li><a href="hardware/bom.html" >Bill of Materials</a></li>
+            
+            <div class="section-title">Data Flow</div>
+            <li><a href="dataflow/index.html" >Data Flow</a></li>
+            <li><a href="dataflow/protocols.html" >Protocols</a></li>
+            <li><a href="dataflow/frames.html" >Frames & Transactions</a></li>
+            
+            <div class="section-title">Software</div>
+            <li><a href="software/index.html" >Code Architecture</a></li>
+            <li><a href="software/build.html" >Build Instructions</a></li>
+            
+            <div class="section-title">Backend & Frontend</div>
+            <li><a href="api/index.html" >API Reference</a></li>
+            <li><a href="frontend/index.html" >Dashboard</a></li>
+            
+            <div class="section-title">Guides</div>
+            <li><a href="troubleshooting.html" >Troubleshooting</a></li>
+            <li><a href="viewer.html" >Interactive Graph</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / Architecture
+        </div>
+<h1>System Architecture</h1>
+<p>Complete system topology showing all boards, components, and communication paths.</p>
+
+<h2>High-Level Topology</h2>
+<div class="mermaid">
+graph LR
+    N0["theSpeaker"]
+    N1["environment"]
+    N2("AHT10 Temperature/Humidity Sensor")
+    N3(("Backend Server"))
+    N4(("Frontend App"))
+    N5("INMP441 I2S MEMS Microphone")
+    N6("Bluetooth Speaker")
+    N7["motor_n_mike"]
+    N2 -->|i2c| N1
+    N1 -->|http| N0
+    N1 -->|tcp| N0
+    N1 -->|http| N3
+    N3 -->|rest_api| N4
+    N0 -->|bluetooth| N6
+    N5 -->|i2s| N7
+    N7 -->|tcp| N3
+    N1 -->|spi| N7
+</div>
+
+<h2>Build Systems</h2>
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="value">3</div>
+        <div class="label">ESP-IDF</div>
+    </div>
+</div>
+
+<h2>Board Details</h2>
+<div class="card">
+    <h3>board_0</h3>
+    <table>
+        <tr><td><strong>MCU</strong></td><td>unknown</td></tr>
+        <tr><td><strong>Build System</strong></td><td>ESP-IDF</td></tr>
+        <tr><td><strong>Role</strong></td><td>Device</td></tr>
+        <tr><td><strong>Folder</strong></td><td><code>device_board_0_1</code></td></tr>
+    </table>
+    <h4>Connected Components</h4>
+    <table>
+        <thead>
+            <tr><th>Component</th><th>Type</th><th>Interface</th><th>Pins</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>component_4</td>
+                <td><span class="badge badge-blue">unknown</span></td>
+                <td>bluetooth</td>
+                <td><code>auto-assigned</code></td>
+            </tr>
+            <tr>
+                <td>component_4</td>
+                <td><span class="badge badge-blue">unknown</span></td>
+                <td>bluetooth</td>
+                <td><code>auto-assigned</code></td>
+            </tr>
+            <tr>
+                <td>component_4</td>
+                <td><span class="badge badge-blue">unknown</span></td>
+                <td>bluetooth</td>
+                <td><code>auto-assigned</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card">
+    <h3>board_1</h3>
+    <table>
+        <tr><td><strong>MCU</strong></td><td>unknown</td></tr>
+        <tr><td><strong>Build System</strong></td><td>ESP-IDF</td></tr>
+        <tr><td><strong>Role</strong></td><td>Device</td></tr>
+        <tr><td><strong>Folder</strong></td><td><code>device_board_1_1</code></td></tr>
+    </table>
+    <h4>Connected Components</h4>
+    <table>
+        <thead>
+            <tr><th>Component</th><th>Type</th><th>Interface</th><th>Pins</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>component_2</td>
+                <td><span class="badge badge-blue">unknown</span></td>
+                <td>i2c</td>
+                <td><code>auto-assigned</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card">
+    <h3>board_5</h3>
+    <table>
+        <tr><td><strong>MCU</strong></td><td>unknown</td></tr>
+        <tr><td><strong>Build System</strong></td><td>ESP-IDF</td></tr>
+        <tr><td><strong>Role</strong></td><td>Device</td></tr>
+        <tr><td><strong>Folder</strong></td><td><code>device_board_5_1</code></td></tr>
+    </table>
+    <h4>Connected Components</h4>
+    <table>
+        <thead>
+            <tr><th>Component</th><th>Type</th><th>Interface</th><th>Pins</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>component_3</td>
+                <td><span class="badge badge-blue">unknown</span></td>
+                <td>i2s</td>
+                <td><code>auto-assigned</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Communication Flow</h2>
+<div class="mermaid">
+sequenceDiagram
+    participant board_0
+    participant board_1
+    participant board_5
+</div>
+
+    </main>
+</body>
+</html>

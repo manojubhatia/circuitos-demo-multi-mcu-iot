@@ -1,0 +1,358 @@
+{
+  "boards": [
+    {
+      "id": "mcu_0",
+      "name": "theSpeaker",
+      "type": "microcontroller",
+      "model": "esp32",
+      "quantity": 1,
+      "purpose": "Main controller - master",
+      "interface": "multiple",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=theSpeaker",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=theSpeaker"
+      },
+      "description": "Popular ESP32 development board with 2.8\" ILI9341 TFT display (240x320), XPT2046 resistive touchscreen, RGB LED, LDR, microSD slot, and speaker connector. Also known as 'Cheap Yellow Display' in the maker community."
+    },
+    {
+      "id": "mcu_1",
+      "name": "environment",
+      "type": "microcontroller",
+      "model": "esp32-c3",
+      "quantity": 1,
+      "purpose": "Main controller - slave",
+      "interface": "multiple",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=environment",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=environment"
+      },
+      "description": "ESP32-C3 Core with Air101-LCD expansion stacked on top, providing WiFi, BLE, ST7735S display (160x80), and 5-way joystick"
+    },
+    {
+      "id": "mcu_2",
+      "name": "motor_n_mike",
+      "type": "microcontroller",
+      "model": "esp32c3",
+      "quantity": 1,
+      "purpose": "Main controller - slave",
+      "interface": "multiple",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=motor_n_mike",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=motor_n_mike"
+      },
+      "description": "ESP32-C3 DevKitM \u2014 Zephyr RTOS supported board (RISC-V 32-bit)"
+    }
+  ],
+  "components": [
+    {
+      "id": "builtin-display",
+      "name": "ILI9341 TFT Display",
+      "type": "display",
+      "model": "builtin-display",
+      "quantity": 1,
+      "purpose": "ILI9341 TFT Display",
+      "interface": "spi",
+      "pins": [
+        "GPIO23",
+        "GPIO19",
+        "GPIO18",
+        "GPIO5"
+      ],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=builtin+display",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=builtin+display"
+      },
+      "description": "ILI9341 TFT Display"
+    },
+    {
+      "id": "builtin-touch",
+      "name": "XPT2046 Touch Controller",
+      "type": "input",
+      "model": "builtin-touch",
+      "quantity": 1,
+      "purpose": "XPT2046 Touch Controller",
+      "interface": "spi",
+      "pins": [
+        "GPIO23",
+        "GPIO19",
+        "GPIO18",
+        "GPIO5"
+      ],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=builtin+touch",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=builtin+touch"
+      },
+      "description": "XPT2046 Touch Controller"
+    },
+    {
+      "id": "builtin-rgb-led",
+      "name": "RGB LED",
+      "type": "actuator",
+      "model": "builtin-rgb-led",
+      "quantity": 1,
+      "purpose": "RGB LED",
+      "interface": "gpio",
+      "pins": [
+        "GPIO4"
+      ],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=builtin+rgb+led",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=builtin+rgb+led"
+      },
+      "description": "RGB LED"
+    },
+    {
+      "id": "builtin-ldr",
+      "name": "LDR Light Sensor",
+      "type": "sensor",
+      "model": "builtin-ldr",
+      "quantity": 1,
+      "purpose": "LDR Light Sensor",
+      "interface": "adc",
+      "pins": [],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=builtin+ldr",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=builtin+ldr"
+      },
+      "description": "LDR Light Sensor"
+    },
+    {
+      "id": "builtin-sdcard",
+      "name": "MicroSD Card Slot",
+      "type": "sensor",
+      "model": "builtin-sdcard",
+      "quantity": 1,
+      "purpose": "MicroSD Card Slot",
+      "interface": "spi",
+      "pins": [
+        "GPIO23",
+        "GPIO19",
+        "GPIO18",
+        "GPIO5"
+      ],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=builtin+sdcard",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=builtin+sdcard"
+      },
+      "description": "MicroSD Card Slot"
+    },
+    {
+      "id": "builtin-speaker",
+      "name": "Speaker Connector (8002A Amp)",
+      "type": "sensor",
+      "model": "builtin-speaker",
+      "quantity": 1,
+      "purpose": "Speaker Connector (8002A Amp)",
+      "interface": "dac",
+      "pins": [],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=builtin+speaker",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=builtin+speaker"
+      },
+      "description": "Speaker Connector (8002A Amp)"
+    },
+    {
+      "id": "st7735s-160x80",
+      "name": "ST7735S LCD Display",
+      "type": "display",
+      "model": "st7735s-160x80",
+      "quantity": 1,
+      "purpose": "ST7735S LCD Display",
+      "interface": "spi",
+      "pins": [
+        "GPIO7",
+        "GPIO2",
+        "GPIO6",
+        "GPIO10"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=st7735s+160x80",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=st7735s+160x80"
+      },
+      "description": "ST7735S LCD Display"
+    },
+    {
+      "id": "joystick-up",
+      "name": "Joystick Up",
+      "type": "input",
+      "model": "joystick-up",
+      "quantity": 1,
+      "purpose": "Joystick Up",
+      "interface": "gpio",
+      "pins": [
+        "GPIO4"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=joystick+up",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=joystick+up"
+      },
+      "description": "Joystick Up"
+    },
+    {
+      "id": "joystick-down",
+      "name": "Joystick Down",
+      "type": "input",
+      "model": "joystick-down",
+      "quantity": 1,
+      "purpose": "Joystick Down",
+      "interface": "gpio",
+      "pins": [
+        "GPIO12"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=joystick+down",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=joystick+down"
+      },
+      "description": "Joystick Down"
+    },
+    {
+      "id": "joystick-left",
+      "name": "Joystick Left",
+      "type": "input",
+      "model": "joystick-left",
+      "quantity": 1,
+      "purpose": "Joystick Left",
+      "interface": "gpio",
+      "pins": [
+        "GPIO13"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=joystick+left",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=joystick+left"
+      },
+      "description": "Joystick Left"
+    },
+    {
+      "id": "joystick-right",
+      "name": "Joystick Right",
+      "type": "input",
+      "model": "joystick-right",
+      "quantity": 1,
+      "purpose": "Joystick Right",
+      "interface": "gpio",
+      "pins": [
+        "GPIO14"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=joystick+right",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=joystick+right"
+      },
+      "description": "Joystick Right"
+    },
+    {
+      "id": "joystick-center",
+      "name": "Joystick Center/Press",
+      "type": "input",
+      "model": "joystick-center",
+      "quantity": 1,
+      "purpose": "Joystick Center/Press",
+      "interface": "gpio",
+      "pins": [
+        "GPIO15"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=joystick+center",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=joystick+center"
+      },
+      "description": "Joystick Center/Press"
+    },
+    {
+      "id": "boot-button",
+      "name": "Boot Button",
+      "type": "input",
+      "model": "boot-button",
+      "quantity": 1,
+      "purpose": "Boot Button",
+      "interface": "gpio",
+      "pins": [
+        "GPIO16"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=boot+button",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=boot+button"
+      },
+      "description": "Boot Button"
+    },
+    {
+      "id": "aht10",
+      "name": "AHT10 Temperature/Humidity Sensor",
+      "type": "sensor",
+      "model": "aht10",
+      "quantity": 1,
+      "purpose": "AHT10 Temperature/Humidity Sensor",
+      "interface": "i2c",
+      "pins": [
+        "GPIO8",
+        "GPIO9"
+      ],
+      "connected_to": "environment",
+      "connected_to_id": "mcu_1",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=aht10",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=aht10"
+      },
+      "description": "AHT10 Temperature/Humidity Sensor"
+    },
+    {
+      "id": "inmp441",
+      "name": "INMP441 I2S MEMS Microphone",
+      "type": "sensor",
+      "model": "inmp441",
+      "quantity": 1,
+      "purpose": "High-performance, low power, digital output MEMS microphone with I2S interface",
+      "interface": "i2s",
+      "pins": [],
+      "connected_to": "motor_n_mike",
+      "connected_to_id": "mcu_2",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=inmp441",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=inmp441"
+      },
+      "description": "High-performance, low power, digital output MEMS microphone with I2S interface"
+    },
+    {
+      "id": "bluetooth-speaker",
+      "name": "Bluetooth Speaker",
+      "type": "actuator",
+      "model": "bluetooth-speaker",
+      "quantity": 1,
+      "purpose": "Bluetooth audio speaker for wireless audio streaming via A2DP profile",
+      "interface": "bluetooth",
+      "pins": [],
+      "connected_to": "theSpeaker",
+      "connected_to_id": "mcu_0",
+      "buy_links": {
+        "amazon": "https://www.amazon.com/s?k=bluetooth+speaker",
+        "aliexpress": "https://www.aliexpress.com/wholesale?SearchText=bluetooth+speaker"
+      },
+      "description": "Bluetooth audio speaker for wireless audio streaming via A2DP profile"
+    }
+  ],
+  "notes": "Components for theSpeaker (3 boards) project"
+}

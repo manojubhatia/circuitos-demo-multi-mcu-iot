@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "variables": [
+    {
+      "id": "environment_aht10_temperature",
+      "name": "environment_aht10_temperature",
+      "type": "float",
+      "source_node": "board_1",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "environment_aht10_humidity",
+      "name": "environment_aht10_humidity",
+      "type": "float",
+      "source_node": "board_1",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "motor_n_mike_inmp441_audio_samples",
+      "name": "motor_n_mike_inmp441_audio_samples",
+      "type": "buffer",
+      "source_node": "board_5",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "motor_n_mike_inmp441_audio_level",
+      "name": "motor_n_mike_inmp441_audio_level",
+      "type": "int",
+      "source_node": "board_5",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "motor_n_mike_inmp441_peak_amplitude",
+      "name": "motor_n_mike_inmp441_peak_amplitude",
+      "type": "int",
+      "source_node": "board_5",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "motor_n_mike_inmp441_rms_level",
+      "name": "motor_n_mike_inmp441_rms_level",
+      "type": "float",
+      "source_node": "board_5",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "motor_n_mike_inmp441_is_clipping",
+      "name": "motor_n_mike_inmp441_is_clipping",
+      "type": "bool",
+      "source_node": "board_5",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "thespeaker_bluetoothspeaker_connected",
+      "name": "thespeaker_bluetoothspeaker_connected",
+      "type": "bool",
+      "source_node": "board_0",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "thespeaker_bluetoothspeaker_device_name",
+      "name": "thespeaker_bluetoothspeaker_device_name",
+      "type": "string",
+      "source_node": "board_0",
+      "direction": "output",
+      "frequency_ms": 1000
+    },
+    {
+      "id": "thespeaker_bluetoothspeaker_rssi",
+      "name": "thespeaker_bluetoothspeaker_rssi",
+      "type": "int",
+      "source_node": "board_0",
+      "direction": "output",
+      "frequency_ms": 1000
+    }
+  ],
+  "saved_at": "2026-09-29T13:56:58.494475"
+}

@@ -1,0 +1,628 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "theSpeaker (3 boards)",
+    "description": "Project with 3 boards",
+    "created_at": "2026-09-29T13:56:58.481350",
+    "modified_at": "2026-09-29T13:56:58.481360"
+  },
+  "microcontrollers": [
+    {
+      "id": "board_0",
+      "name": "theSpeaker",
+      "type": "ESP32_2432S028R",
+      "role": "controller",
+      "position": {
+        "x": 1680.0,
+        "y": 200.0
+      },
+      "pins": []
+    },
+    {
+      "id": "board_1",
+      "name": "environment",
+      "type": "LUATOS_ESP32_C3_AIR101_LCD_STACK",
+      "role": "sensor",
+      "position": {
+        "x": 1390.0,
+        "y": 560.0
+      },
+      "pins": []
+    },
+    {
+      "id": "board_5",
+      "name": "motor_n_mike",
+      "type": "ZEPHYR_ESP32C3_DEVKITM",
+      "role": "sensor",
+      "position": {
+        "x": 1180.0,
+        "y": 800.0
+      },
+      "pins": []
+    }
+  ],
+  "components": [
+    {
+      "id": "component_2",
+      "name": "AHT10 Temperature/Humidity Sensor",
+      "type": "environmental",
+      "template": "aht10",
+      "category": "environmental",
+      "position": {
+        "x": 1400.0,
+        "y": 280.0
+      },
+      "connected_to_mcu": "board_1",
+      "configuration": {},
+      "pins": [
+        {
+          "name": "VIN",
+          "type": "power",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "SCL",
+          "type": "i2c_scl",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "SDA",
+          "type": "i2c_sda",
+          "connected_to_gpio": null
+        }
+      ],
+      "data_produces": [
+        "temperature",
+        "humidity"
+      ],
+      "data_consumes": []
+    },
+    {
+      "id": "component_3",
+      "name": "INMP441 I2S MEMS Microphone",
+      "type": "audio",
+      "template": "inmp441",
+      "category": "audio",
+      "position": {
+        "x": 1090.0,
+        "y": 550.0
+      },
+      "connected_to_mcu": "board_5",
+      "configuration": {},
+      "pins": [
+        {
+          "name": "VDD",
+          "type": "power",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "SD",
+          "type": "i2s_data",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "WS",
+          "type": "i2s_ws",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "SCK",
+          "type": "i2s_bclk",
+          "connected_to_gpio": null
+        },
+        {
+          "name": "L/R",
+          "type": "gpio",
+          "connected_to_gpio": null
+        }
+      ],
+      "data_produces": [
+        "audio_samples",
+        "audio_level",
+        "peak_amplitude",
+        "rms_level",
+        "is_clipping"
+      ],
+      "data_consumes": []
+    },
+    {
+      "id": "component_4",
+      "name": "Bluetooth Speaker",
+      "type": "audio",
+      "template": "bluetooth-speaker",
+      "category": "audio",
+      "position": {
+        "x": 1790.0,
+        "y": 840.0
+      },
+      "connected_to_mcu": "board_0",
+      "configuration": {},
+      "pins": [],
+      "data_produces": [
+        "connected",
+        "device_name",
+        "rssi"
+      ],
+      "data_consumes": [
+        "playing",
+        "volume",
+        "audio_source"
+      ]
+    }
+  ],
+  "system_nodes": [
+    {
+      "id": "system_backend_3",
+      "type": "backend",
+      "name": "Backend Server",
+      "position": {
+        "x": 2110.0,
+        "y": 580.0
+      },
+      "config": {
+        "features": [
+          "websocket",
+          "rest_api"
+        ],
+        "host": "192.168.0.76",
+        "port": 8500
+      },
+      "communicationMethods": [
+        {
+          "config": {
+            "port": 8500
+          },
+          "sourceMcuId": "board_1",
+          "sourcePort": "wifi_http",
+          "type": "http"
+        },
+        {
+          "config": null,
+          "sourceMcuId": "board_5",
+          "sourcePort": "wifi_tcp",
+          "type": "tcp"
+        }
+      ]
+    },
+    {
+      "id": "system_frontend_4",
+      "type": "frontend",
+      "name": "Frontend App",
+      "position": {
+        "x": 2410.0,
+        "y": 580.0
+      },
+      "config": {
+        "features": [
+          "react",
+          "websocket"
+        ],
+        "host": "192.168.0.76",
+        "port": 8501
+      },
+      "communicationMethods": []
+    }
+  ],
+  "wiring": [
+    {
+      "id": "edge_0_sda",
+      "from": {
+        "node_id": "component_2",
+        "pin": "SDA"
+      },
+      "to": {
+        "node_id": "board_1",
+        "pin": "None"
+      },
+      "wire_type": "i2c",
+      "color": "#06b6d4",
+      "label": "SDA"
+    },
+    {
+      "id": "edge_0_scl",
+      "from": {
+        "node_id": "component_2",
+        "pin": "SCL"
+      },
+      "to": {
+        "node_id": "board_1",
+        "pin": "None"
+      },
+      "wire_type": "i2c",
+      "color": "#06b6d4",
+      "label": "SCL"
+    },
+    {
+      "id": "edge_0_vcc",
+      "from": {
+        "node_id": "component_2",
+        "pin": "VCC"
+      },
+      "to": {
+        "node_id": "board_1",
+        "pin": "3.3V"
+      },
+      "wire_type": "power",
+      "color": "#ef4444",
+      "label": "VCC"
+    },
+    {
+      "id": "edge_0_gnd",
+      "from": {
+        "node_id": "component_2",
+        "pin": "GND"
+      },
+      "to": {
+        "node_id": "board_1",
+        "pin": "GND"
+      },
+      "wire_type": "ground",
+      "color": "#6b7280",
+      "label": "GND"
+    },
+    {
+      "id": "edge_3",
+      "from": {
+        "node_id": "board_1",
+        "pin": "WIFI_HTTP"
+      },
+      "to": {
+        "node_id": "system_backend_3",
+        "pin": "HTTP"
+      },
+      "wire_type": "http",
+      "color": "#22c55e",
+      "label": "HTTP"
+    },
+    {
+      "id": "edge_4",
+      "from": {
+        "node_id": "system_backend_3",
+        "pin": "REST_API"
+      },
+      "to": {
+        "node_id": "system_frontend_4",
+        "pin": "REST_API"
+      },
+      "wire_type": "rest_api",
+      "color": "#22c55e",
+      "label": "REST_API"
+    },
+    {
+      "id": "edge_7_left",
+      "from": {
+        "node_id": "component_4",
+        "pin": "LEFT"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GPIO4"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "LEFT"
+    },
+    {
+      "id": "edge_7_right",
+      "from": {
+        "node_id": "component_4",
+        "pin": "RIGHT"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GPIO4"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "RIGHT"
+    },
+    {
+      "id": "edge_7_vcc",
+      "from": {
+        "node_id": "component_4",
+        "pin": "VCC"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "3.3V"
+      },
+      "wire_type": "power",
+      "color": "#ef4444",
+      "label": "VCC"
+    },
+    {
+      "id": "edge_7_gnd",
+      "from": {
+        "node_id": "component_4",
+        "pin": "GND"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GND"
+      },
+      "wire_type": "ground",
+      "color": "#6b7280",
+      "label": "GND"
+    },
+    {
+      "id": "edge_8_left",
+      "from": {
+        "node_id": "component_4",
+        "pin": "LEFT"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GPIO4"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "LEFT"
+    },
+    {
+      "id": "edge_8_right",
+      "from": {
+        "node_id": "component_4",
+        "pin": "RIGHT"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GPIO4"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "RIGHT"
+    },
+    {
+      "id": "edge_8_vcc",
+      "from": {
+        "node_id": "component_4",
+        "pin": "VCC"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "3.3V"
+      },
+      "wire_type": "power",
+      "color": "#ef4444",
+      "label": "VCC"
+    },
+    {
+      "id": "edge_8_gnd",
+      "from": {
+        "node_id": "component_4",
+        "pin": "GND"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GND"
+      },
+      "wire_type": "ground",
+      "color": "#6b7280",
+      "label": "GND"
+    },
+    {
+      "id": "edge_9_sck",
+      "from": {
+        "node_id": "component_3",
+        "pin": "SCK"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO0"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "SCK"
+    },
+    {
+      "id": "edge_9_sd",
+      "from": {
+        "node_id": "component_3",
+        "pin": "SD"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO2"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "SD"
+    },
+    {
+      "id": "edge_9_ws",
+      "from": {
+        "node_id": "component_3",
+        "pin": "WS"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO1"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "WS"
+    },
+    {
+      "id": "edge_9_vcc",
+      "from": {
+        "node_id": "component_3",
+        "pin": "VCC"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "3.3V"
+      },
+      "wire_type": "power",
+      "color": "#ef4444",
+      "label": "VCC"
+    },
+    {
+      "id": "edge_9_gnd",
+      "from": {
+        "node_id": "component_3",
+        "pin": "GND"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GND"
+      },
+      "wire_type": "ground",
+      "color": "#6b7280",
+      "label": "GND"
+    },
+    {
+      "id": "edge_10",
+      "from": {
+        "node_id": "board_5",
+        "pin": "WIFI_TCP"
+      },
+      "to": {
+        "node_id": "system_backend_3",
+        "pin": "TCP"
+      },
+      "wire_type": "tcp",
+      "color": "#22c55e",
+      "label": "TCP"
+    },
+    {
+      "id": "edge_13_mosi",
+      "from": {
+        "node_id": "board_1",
+        "pin": "GPIO23"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO23"
+      },
+      "wire_type": "spi",
+      "color": "#8b5cf6",
+      "label": "SPI MOSI"
+    },
+    {
+      "id": "edge_13_miso",
+      "from": {
+        "node_id": "board_1",
+        "pin": "GPIO19"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO19"
+      },
+      "wire_type": "spi",
+      "color": "#8b5cf6",
+      "label": "SPI MISO"
+    },
+    {
+      "id": "edge_13_sclk",
+      "from": {
+        "node_id": "board_1",
+        "pin": "GPIO18"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO18"
+      },
+      "wire_type": "spi",
+      "color": "#8b5cf6",
+      "label": "SPI SCLK"
+    },
+    {
+      "id": "edge_13_cs",
+      "from": {
+        "node_id": "board_1",
+        "pin": "GPIO5"
+      },
+      "to": {
+        "node_id": "board_5",
+        "pin": "GPIO5"
+      },
+      "wire_type": "spi",
+      "color": "#8b5cf6",
+      "label": "SPI CS"
+    },
+    {
+      "id": "edge_14_left",
+      "from": {
+        "node_id": "component_4",
+        "pin": "LEFT"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GPIO4"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "LEFT"
+    },
+    {
+      "id": "edge_14_right",
+      "from": {
+        "node_id": "component_4",
+        "pin": "RIGHT"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GPIO4"
+      },
+      "wire_type": "gpio",
+      "color": "#22c55e",
+      "label": "RIGHT"
+    },
+    {
+      "id": "edge_14_vcc",
+      "from": {
+        "node_id": "component_4",
+        "pin": "VCC"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "3.3V"
+      },
+      "wire_type": "power",
+      "color": "#ef4444",
+      "label": "VCC"
+    },
+    {
+      "id": "edge_14_gnd",
+      "from": {
+        "node_id": "component_4",
+        "pin": "GND"
+      },
+      "to": {
+        "node_id": "board_0",
+        "pin": "GND"
+      },
+      "wire_type": "ground",
+      "color": "#6b7280",
+      "label": "GND"
+    }
+  ],
+  "signals": [],
+  "hardware_notes": [],
+  "data_flow": {
+    "signals": [],
+    "streams": []
+  },
+  "communication": {
+    "wifi": {
+      "enabled": false
+    },
+    "mqtt": {
+      "enabled": false
+    },
+    "backend": {
+      "enabled": true
+    }
+  },
+  "generation_timestamp": "2026-09-29T13:56:58.481363"
+}

@@ -1,0 +1,403 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-09-29T13:56:59.491691",
+  "frames_hash": "9a269993338ebfb4",
+  "frames": [
+    {
+      "frame_id": "sensor_data_board_1",
+      "frame_role": "telemetry",
+      "source_mcu": "board_1",
+      "target": "backend",
+      "protocol": "http",
+      "interval_ms": 1000,
+      "fields": [
+        {
+          "name": "environment_aht10_temperature",
+          "type": "float",
+          "unit": "celsius",
+          "source_component": "aht10",
+          "display_name": "[environment] AHT10 Temperature/Humidity Sensor - Temperature"
+        },
+        {
+          "name": "environment_aht10_humidity",
+          "type": "float",
+          "unit": "percent",
+          "source_component": "aht10",
+          "display_name": "[environment] AHT10 Temperature/Humidity Sensor - Humidity"
+        }
+      ]
+    },
+    {
+      "frame_id": "sensor_data_board_5",
+      "frame_role": "telemetry",
+      "source_mcu": "board_5",
+      "target": "backend",
+      "protocol": "http",
+      "interval_ms": 1000,
+      "fields": [
+        {
+          "name": "motor_n_mike_inmp441_audio_samples",
+          "type": "buffer",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Audio Samples"
+        },
+        {
+          "name": "motor_n_mike_inmp441_audio_level",
+          "type": "int",
+          "unit": "dB",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Audio Level"
+        },
+        {
+          "name": "motor_n_mike_inmp441_peak_amplitude",
+          "type": "int",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Peak Amplitude"
+        },
+        {
+          "name": "motor_n_mike_inmp441_rms_level",
+          "type": "float",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Rms Level"
+        },
+        {
+          "name": "motor_n_mike_inmp441_is_clipping",
+          "type": "bool",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Is Clipping"
+        }
+      ]
+    },
+    {
+      "frame_id": "sensor_data_board_0",
+      "frame_role": "telemetry",
+      "source_mcu": "board_0",
+      "target": "backend",
+      "protocol": "http",
+      "interval_ms": 1000,
+      "fields": [
+        {
+          "name": "thespeaker_bluetoothspeaker_connected",
+          "type": "bool",
+          "unit": "",
+          "source_component": "bluetooth_speaker",
+          "display_name": "[theSpeaker] Bluetooth Speaker - Connected"
+        },
+        {
+          "name": "thespeaker_bluetoothspeaker_device_name",
+          "type": "string",
+          "unit": "",
+          "source_component": "bluetooth_speaker",
+          "display_name": "[theSpeaker] Bluetooth Speaker - Device Name"
+        },
+        {
+          "name": "thespeaker_bluetoothspeaker_rssi",
+          "type": "int",
+          "unit": "",
+          "source_component": "bluetooth_speaker",
+          "display_name": "[theSpeaker] Bluetooth Speaker - Rssi"
+        }
+      ]
+    },
+    {
+      "id": "start_cross_mcu_board_1_to_board_5_spi",
+      "frame_id": "start_cross_mcu_board_1_to_board_5_spi",
+      "name": "Start: environment \u2192 motor_n_mike (SPI)",
+      "frame_role": "start_stream",
+      "source_mcu": "board_1",
+      "source_mcu_id": "board_1",
+      "target": "board_5",
+      "target_mcu_id": "board_5",
+      "protocol": "spi",
+      "cross_mcu": true,
+      "instance_index": null,
+      "instance_identifier": "",
+      "variable_ids": [
+        "environment_aht10_temperature",
+        "environment_aht10_humidity"
+      ],
+      "variables": [
+        {
+          "id": "environment_aht10_temperature",
+          "name": "temperature",
+          "type": "float",
+          "unit": "celsius"
+        },
+        {
+          "id": "environment_aht10_humidity",
+          "name": "humidity",
+          "type": "float",
+          "unit": "percent"
+        }
+      ]
+    },
+    {
+      "id": "cross_mcu_board_1_to_board_5_spi_aht10_data",
+      "frame_id": "cross_mcu_board_1_to_board_5_spi_aht10_data",
+      "name": "Data: environment aht10 \u2192 motor_n_mike",
+      "frame_role": "data",
+      "source_mcu": "board_1",
+      "source_mcu_id": "board_1",
+      "target": "board_5",
+      "target_mcu_id": "board_5",
+      "protocol": "spi",
+      "interval_ms": 100,
+      "cross_mcu": true,
+      "instance_index": null,
+      "instance_identifier": "",
+      "component": "aht10",
+      "variable_ids": [
+        "environment_aht10_temperature",
+        "environment_aht10_humidity"
+      ],
+      "variables": [
+        {
+          "id": "environment_aht10_temperature",
+          "name": "temperature",
+          "type": "float",
+          "unit": "celsius"
+        },
+        {
+          "id": "environment_aht10_humidity",
+          "name": "humidity",
+          "type": "float",
+          "unit": "percent"
+        }
+      ],
+      "fields": [
+        {
+          "name": "environment_aht10_temperature",
+          "type": "float",
+          "unit": "celsius",
+          "source_component": "aht10",
+          "display_name": "[environment] AHT10 Temperature/Humidity Sensor - Temperature"
+        },
+        {
+          "name": "environment_aht10_humidity",
+          "type": "float",
+          "unit": "percent",
+          "source_component": "aht10",
+          "display_name": "[environment] AHT10 Temperature/Humidity Sensor - Humidity"
+        }
+      ]
+    },
+    {
+      "id": "heartbeat_cross_mcu_board_1_to_board_5_spi",
+      "frame_id": "heartbeat_cross_mcu_board_1_to_board_5_spi",
+      "name": "Heartbeat: environment \u2192 motor_n_mike",
+      "frame_role": "heartbeat",
+      "source_mcu": "board_1",
+      "source_mcu_id": "board_1",
+      "target": "board_5",
+      "target_mcu_id": "board_5",
+      "protocol": "spi",
+      "interval_ms": 5000,
+      "cross_mcu": true,
+      "instance_index": null,
+      "instance_identifier": "",
+      "variable_ids": [],
+      "variables": []
+    },
+    {
+      "id": "backend_to_frontend_board_1",
+      "frame_id": "backend_to_frontend_board_1",
+      "name": "Backend \u2192 Frontend (board_1 data)",
+      "frame_role": "relay",
+      "source_mcu": "backend",
+      "source_mcu_id": "backend",
+      "target": "frontend",
+      "target_mcu_id": "frontend",
+      "protocol": "websocket",
+      "interval_ms": 1000,
+      "variable_ids": [
+        "environment_aht10_temperature",
+        "environment_aht10_humidity"
+      ],
+      "variables": [
+        {
+          "id": "environment_aht10_temperature",
+          "name": "temperature",
+          "type": "float",
+          "unit": "celsius"
+        },
+        {
+          "id": "environment_aht10_humidity",
+          "name": "humidity",
+          "type": "float",
+          "unit": "percent"
+        }
+      ],
+      "fields": [
+        {
+          "name": "environment_aht10_temperature",
+          "type": "float",
+          "unit": "celsius",
+          "source_component": "aht10",
+          "display_name": "[environment] AHT10 Temperature/Humidity Sensor - Temperature"
+        },
+        {
+          "name": "environment_aht10_humidity",
+          "type": "float",
+          "unit": "percent",
+          "source_component": "aht10",
+          "display_name": "[environment] AHT10 Temperature/Humidity Sensor - Humidity"
+        }
+      ]
+    },
+    {
+      "id": "backend_to_frontend_board_5",
+      "frame_id": "backend_to_frontend_board_5",
+      "name": "Backend \u2192 Frontend (board_5 data)",
+      "frame_role": "relay",
+      "source_mcu": "backend",
+      "source_mcu_id": "backend",
+      "target": "frontend",
+      "target_mcu_id": "frontend",
+      "protocol": "websocket",
+      "interval_ms": 1000,
+      "variable_ids": [
+        "motor_n_mike_inmp441_audio_samples",
+        "motor_n_mike_inmp441_audio_level",
+        "motor_n_mike_inmp441_peak_amplitude",
+        "motor_n_mike_inmp441_rms_level",
+        "motor_n_mike_inmp441_is_clipping"
+      ],
+      "variables": [
+        {
+          "id": "motor_n_mike_inmp441_audio_samples",
+          "name": "audio_samples",
+          "type": "buffer",
+          "unit": ""
+        },
+        {
+          "id": "motor_n_mike_inmp441_audio_level",
+          "name": "audio_level",
+          "type": "int",
+          "unit": "dB"
+        },
+        {
+          "id": "motor_n_mike_inmp441_peak_amplitude",
+          "name": "peak_amplitude",
+          "type": "int",
+          "unit": ""
+        },
+        {
+          "id": "motor_n_mike_inmp441_rms_level",
+          "name": "rms_level",
+          "type": "float",
+          "unit": ""
+        },
+        {
+          "id": "motor_n_mike_inmp441_is_clipping",
+          "name": "is_clipping",
+          "type": "bool",
+          "unit": ""
+        }
+      ],
+      "fields": [
+        {
+          "name": "motor_n_mike_inmp441_audio_samples",
+          "type": "buffer",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Audio Samples"
+        },
+        {
+          "name": "motor_n_mike_inmp441_audio_level",
+          "type": "int",
+          "unit": "dB",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Audio Level"
+        },
+        {
+          "name": "motor_n_mike_inmp441_peak_amplitude",
+          "type": "int",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Peak Amplitude"
+        },
+        {
+          "name": "motor_n_mike_inmp441_rms_level",
+          "type": "float",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Rms Level"
+        },
+        {
+          "name": "motor_n_mike_inmp441_is_clipping",
+          "type": "bool",
+          "unit": "",
+          "source_component": "inmp441",
+          "display_name": "[motor_n_mike] INMP441 I2S MEMS Microphone - Is Clipping"
+        }
+      ]
+    },
+    {
+      "id": "backend_to_frontend_board_0",
+      "frame_id": "backend_to_frontend_board_0",
+      "name": "Backend \u2192 Frontend (board_0 data)",
+      "frame_role": "relay",
+      "source_mcu": "backend",
+      "source_mcu_id": "backend",
+      "target": "frontend",
+      "target_mcu_id": "frontend",
+      "protocol": "websocket",
+      "interval_ms": 1000,
+      "variable_ids": [
+        "thespeaker_bluetoothspeaker_connected",
+        "thespeaker_bluetoothspeaker_device_name",
+        "thespeaker_bluetoothspeaker_rssi"
+      ],
+      "variables": [
+        {
+          "id": "thespeaker_bluetoothspeaker_connected",
+          "name": "connected",
+          "type": "bool",
+          "unit": ""
+        },
+        {
+          "id": "thespeaker_bluetoothspeaker_device_name",
+          "name": "device_name",
+          "type": "string",
+          "unit": ""
+        },
+        {
+          "id": "thespeaker_bluetoothspeaker_rssi",
+          "name": "rssi",
+          "type": "int",
+          "unit": ""
+        }
+      ],
+      "fields": [
+        {
+          "name": "thespeaker_bluetoothspeaker_connected",
+          "type": "bool",
+          "unit": "",
+          "source_component": "bluetooth_speaker",
+          "display_name": "[theSpeaker] Bluetooth Speaker - Connected"
+        },
+        {
+          "name": "thespeaker_bluetoothspeaker_device_name",
+          "type": "string",
+          "unit": "",
+          "source_component": "bluetooth_speaker",
+          "display_name": "[theSpeaker] Bluetooth Speaker - Device Name"
+        },
+        {
+          "name": "thespeaker_bluetoothspeaker_rssi",
+          "type": "int",
+          "unit": "",
+          "source_component": "bluetooth_speaker",
+          "display_name": "[theSpeaker] Bluetooth Speaker - Rssi"
+        }
+      ]
+    }
+  ],
+  "transactions": [],
+  "operations": [],
+  "mappings": []
+}

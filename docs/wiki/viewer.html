@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Graph — 20260929_135652 Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1a1a1a;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent: #f59e0b;
+            --accent-hover: #f97316;
+            --border: #27272a;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --code-bg: #18181b;
+            --nav-width: 260px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        nav.sidebar {
+            width: var(--nav-width);
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav.sidebar .logo {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        nav.sidebar .logo h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        nav.sidebar .logo p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        nav.sidebar ul {
+            list-style: none;
+        }
+
+        nav.sidebar li a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.15s;
+            border-left: 3px solid transparent;
+        }
+
+        nav.sidebar li a:hover {
+            color: var(--text-primary);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        nav.sidebar li a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        nav.sidebar .section-title {
+            padding: 1rem 1.5rem 0.3rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        main {
+            margin-left: var(--nav-width);
+            padding: 2rem 3rem;
+            max-width: 1200px;
+            width: calc(100% - var(--nav-width));
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--text-primary); }
+        h3 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        td { color: var(--text-secondary); }
+
+        code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-blue { background: rgba(59, 130, 246, 0.15); color: #93c5fd; }
+        .badge-green { background: rgba(34, 197, 94, 0.15); color: #86efac; }
+        .badge-yellow { background: rgba(245, 158, 11, 0.15); color: #fcd34d; }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: #fca5a5; }
+        .badge-orange { background: rgba(249, 115, 22, 0.15); color: #fdba74; }
+
+        .mermaid {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+            min-width: 800px;
+        }
+
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Scrollbar matching app */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+        @media (max-width: 768px) {
+            nav.sidebar { display: none; }
+            main { margin-left: 0; padding: 1rem; }
+        }
+
+        /* Hide sidebar when embedded in iframe (workspace Docs tab) */
+        .embedded nav.sidebar { display: none; }
+        .embedded main { margin-left: 0; padding: 1.5rem; }
+        .embedded .breadcrumb { display: none; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        if (window.self !== window.top) {
+            document.documentElement.classList.add('embedded');
+        }
+    </script>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>20260929_135652</h2>
+            <p>Project Documentation</p>
+        </div>
+        <ul>
+            <li><a href="index.html" >Overview</a></li>
+            <li><a href="architecture.html" >Architecture</a></li>
+            
+            <div class="section-title">Hardware</div>
+            <li><a href="hardware/index.html" >Hardware Overview</a></li>
+            <li><a href="hardware/wiring.html" >Wiring Diagram</a></li>
+            <li><a href="hardware/bom.html" >Bill of Materials</a></li>
+            
+            <div class="section-title">Data Flow</div>
+            <li><a href="dataflow/index.html" >Data Flow</a></li>
+            <li><a href="dataflow/protocols.html" >Protocols</a></li>
+            <li><a href="dataflow/frames.html" >Frames & Transactions</a></li>
+            
+            <div class="section-title">Software</div>
+            <li><a href="software/index.html" >Code Architecture</a></li>
+            <li><a href="software/build.html" >Build Instructions</a></li>
+            
+            <div class="section-title">Backend & Frontend</div>
+            <li><a href="api/index.html" >API Reference</a></li>
+            <li><a href="frontend/index.html" >Dashboard</a></li>
+            
+            <div class="section-title">Guides</div>
+            <li><a href="troubleshooting.html" >Troubleshooting</a></li>
+            <li><a href="viewer.html" class="active">Interactive Graph</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / Interactive Graph
+        </div>
+<style>
+    .graph-wrapper {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 120px);
+        background: #0f172a;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .graph-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: #1e293b;
+        border-bottom: 1px solid #334155;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        z-index: 10;
+    }
+    .graph-header .title {
+        font-size: 0.85rem;
+        color: #3b82f6;
+        font-weight: 600;
+    }
+    .graph-header .subtitle {
+        margin-left: 1rem;
+        font-size: 0.75rem;
+        color: #94a3b8;
+    }
+    #graph-container {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 300px;
+        bottom: 0;
+    }
+    #detail-panel {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 300px;
+        bottom: 0;
+        background: #1e293b;
+        border-left: 1px solid #334155;
+        padding: 1rem;
+        overflow-y: auto;
+    }
+    #detail-panel h2 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #f1f5f9;
+    }
+    #detail-panel .field {
+        margin: 0.4rem 0;
+        font-size: 0.8rem;
+    }
+    #detail-panel .field .label {
+        color: #94a3b8;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+    }
+    #detail-panel .field .value {
+        color: #f1f5f9;
+    }
+    #detail-panel .badge {
+        display: inline-block;
+        padding: 0.15rem 0.4rem;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        background: rgba(59, 130, 246, 0.2);
+        color: #93c5fd;
+        margin-top: 0.2rem;
+    }
+    .graph-node {
+        position: absolute;
+        background: #1e293b;
+        border: 2px solid #334155;
+        border-radius: 8px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        user-select: none;
+        color: #f1f5f9;
+        white-space: nowrap;
+    }
+    .graph-node:hover { border-color: #3b82f6; transform: scale(1.05); }
+    .graph-node.board { border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+    .graph-node.sensor { border-color: #22c55e; background: rgba(34, 197, 94, 0.1); }
+    .graph-node.actuator { border-color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+    .graph-node.system { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.1); }
+    .graph-node.selected { border-color: #fff; box-shadow: 0 0 12px rgba(59, 130, 246, 0.5); }
+    #graph-container svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    #graph-container svg line { stroke: #475569; stroke-width: 2; }
+    #graph-container svg line.i2c { stroke: #fbbf24; }
+    #graph-container svg line.spi { stroke: #34d399; }
+    #graph-container svg line.uart { stroke: #f97316; }
+    #graph-container svg line.can { stroke: #ef4444; }
+    #graph-container svg line.http { stroke: #3b82f6; }
+    #graph-container svg line.mqtt { stroke: #8b5cf6; }
+    #graph-container svg line.bluetooth { stroke: #06b6d4; }
+    #graph-container svg line.ble { stroke: #06b6d4; }
+    #graph-container svg line.websocket { stroke: #a78bfa; }
+
+    /* Port dots on nodes */
+    .graph-node .port {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #475569;
+        border: 1px solid #1e293b;
+    }
+    .graph-node .port.port-left { left: -5px; top: 50%; transform: translateY(-50%); }
+    .graph-node .port.port-right { right: -5px; top: 50%; transform: translateY(-50%); }
+    .graph-node .port.i2c { background: #fbbf24; }
+    .graph-node .port.spi { background: #34d399; }
+    .graph-node .port.uart { background: #f97316; }
+    .graph-node .port.http { background: #3b82f6; }
+    .graph-node .port.bluetooth, .graph-node .port.ble { background: #06b6d4; }
+    .graph-node .port.can { background: #ef4444; }
+</style>
+
+<div class="graph-wrapper">
+    <div class="graph-header">
+        <span class="title">20260929_135652</span>
+        <span class="subtitle">Interactive System Graph &bull; 8 nodes &bull; 9 connections</span>
+    </div>
+    <div id="graph-container"></div>
+    <div id="detail-panel">
+        <h2>Select a Node</h2>
+        <p style="color: #94a3b8; font-size: 0.8rem;">Click on any node to see its details and connections.</p>
+    </div>
+</div>
+
+<script>
+    const graphData = {"nodes": [{"id": "board_0", "label": "theSpeaker", "type": "board", "registryId": "esp32-2432s028r", "buildSystem": "esp_idf", "interface": ""}, {"id": "board_1", "label": "environment", "type": "board", "registryId": "luatos-esp32-c3-air101-lcd-stack", "buildSystem": "esp_idf", "interface": ""}, {"id": "component_2", "label": "AHT10 Temperature/Humidity Sensor", "type": "component", "registryId": "aht10", "buildSystem": "", "interface": ""}, {"id": "system_backend_3", "label": "Backend Server", "type": "system", "registryId": "system_backend", "buildSystem": "", "interface": ""}, {"id": "system_frontend_4", "label": "Frontend App", "type": "system", "registryId": "system_frontend", "buildSystem": "", "interface": ""}, {"id": "component_3", "label": "INMP441 I2S MEMS Microphone", "type": "component", "registryId": "inmp441", "buildSystem": "", "interface": ""}, {"id": "component_4", "label": "Bluetooth Speaker", "type": "component", "registryId": "bluetooth-speaker", "buildSystem": "", "interface": ""}, {"id": "board_5", "label": "motor_n_mike", "type": "board", "registryId": "zephyr-esp32c3-devkitm", "buildSystem": "esp_idf", "interface": ""}], "edges": [{"source": "component_2", "target": "board_1", "interface": "i2c"}, {"source": "board_1", "target": "board_0", "interface": "http"}, {"source": "board_1", "target": "board_0", "interface": "tcp"}, {"source": "board_1", "target": "system_backend_3", "interface": "http"}, {"source": "system_backend_3", "target": "system_frontend_4", "interface": "rest_api"}, {"source": "board_0", "target": "component_4", "interface": "bluetooth"}, {"source": "component_3", "target": "board_5", "interface": "i2s"}, {"source": "board_5", "target": "system_backend_3", "interface": "tcp"}, {"source": "board_1", "target": "board_5", "interface": "spi"}]};
+    const container = document.getElementById('graph-container');
+    const panel = document.getElementById('detail-panel');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    // Force-directed layout with better initial positions
+    const nodes = graphData.nodes.map((n, i) => ({
+        ...n,
+        x: width / 2 + Math.cos(i * 2 * Math.PI / graphData.nodes.length) * Math.min(width, height) * 0.35,
+        y: height / 2 + Math.sin(i * 2 * Math.PI / graphData.nodes.length) * Math.min(width, height) * 0.35,
+        vx: 0, vy: 0
+    }));
+
+    // Create SVG for edges
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    container.appendChild(svg);
+
+    // Collect connections per node for port rendering
+    const nodeConnections = {};
+    graphData.edges.forEach(edge => {
+        if (!nodeConnections[edge.source]) nodeConnections[edge.source] = [];
+        if (!nodeConnections[edge.target]) nodeConnections[edge.target] = [];
+        nodeConnections[edge.source].push({ ...edge, role: 'source' });
+        nodeConnections[edge.target].push({ ...edge, role: 'target' });
+    });
+
+    // Create node elements with ports
+    nodes.forEach(node => {
+        const el = document.createElement('div');
+        el.className = `graph-node ${node.type || ''}`;
+        el.textContent = node.label;
+        el.style.left = `${node.x}px`;
+        el.style.top = `${node.y}px`;
+
+        // Add ports (left = incoming, right = outgoing)
+        const conns = nodeConnections[node.id] || [];
+        const inConns = conns.filter(c => c.role === 'target');
+        const outConns = conns.filter(c => c.role === 'source');
+
+        // Add left ports (unique interfaces)
+        const leftInterfaces = [...new Set(inConns.map(c => c.interface))];
+        leftInterfaces.forEach((iface, idx) => {
+            const port = document.createElement('div');
+            port.className = `port port-left ${iface || ''}`;
+            port.style.top = `${((idx + 1) / (leftInterfaces.length + 1)) * 100}%`;
+            port.title = iface || 'wire';
+            el.appendChild(port);
+        });
+
+        // Add right ports
+        const rightInterfaces = [...new Set(outConns.map(c => c.interface))];
+        rightInterfaces.forEach((iface, idx) => {
+            const port = document.createElement('div');
+            port.className = `port port-right ${iface || ''}`;
+            port.style.top = `${((idx + 1) / (rightInterfaces.length + 1)) * 100}%`;
+            port.title = iface || 'wire';
+            el.appendChild(port);
+        });
+
+        el.addEventListener('click', () => showDetails(node));
+
+        // Drag support
+        let dragging = false, offsetX, offsetY;
+        el.addEventListener('mousedown', e => {
+            dragging = true;
+            offsetX = e.offsetX;
+            offsetY = e.offsetY;
+            el.style.zIndex = 10;
+        });
+        document.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            const rect = container.getBoundingClientRect();
+            node.x = e.clientX - rect.left - offsetX;
+            node.y = e.clientY - rect.top - offsetY;
+            el.style.left = `${node.x}px`;
+            el.style.top = `${node.y}px`;
+            drawEdges();
+        });
+        document.addEventListener('mouseup', () => { dragging = false; });
+
+        node.el = el;
+        container.appendChild(el);
+    });
+
+    function drawEdges() {
+        svg.innerHTML = '';
+        graphData.edges.forEach(edge => {
+            const src = nodes.find(n => n.id === edge.source);
+            const tgt = nodes.find(n => n.id === edge.target);
+            if (!src || !tgt) return;
+            const srcEl = src.el;
+            const tgtEl = tgt.el;
+            const srcW = srcEl.offsetWidth || 80;
+            const tgtW = tgtEl.offsetWidth || 80;
+            const srcH = srcEl.offsetHeight || 30;
+            const tgtH = tgtEl.offsetHeight || 30;
+
+            // Connect from right side of source to left side of target
+            const x1 = src.x + srcW;
+            const y1 = src.y + srcH / 2;
+            const x2 = tgt.x;
+            const y2 = tgt.y + tgtH / 2;
+
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', x1);
+            line.setAttribute('y1', y1);
+            line.setAttribute('x2', x2);
+            line.setAttribute('y2', y2);
+            line.setAttribute('class', edge.interface || '');
+            svg.appendChild(line);
+        });
+    }
+
+    function showDetails(node) {
+        nodes.forEach(n => n.el.classList.remove('selected'));
+        node.el.classList.add('selected');
+
+        const connections = graphData.edges.filter(e => e.source === node.id || e.target === node.id);
+        const connHtml = connections.map(c => {
+            const other = c.source === node.id ? c.target : c.source;
+            const otherNode = nodes.find(n => n.id === other);
+            return `<div class="field"><span class="badge">${c.interface || 'wire'}</span> ${otherNode ? otherNode.label : other}</div>`;
+        }).join('');
+
+        panel.innerHTML = `
+            <h2>${node.label}</h2>
+            <div class="field"><div class="label">Type</div><div class="value">${node.type || 'component'}</div></div>
+            <div class="field"><div class="label">Registry ID</div><div class="value">${node.registryId || '—'}</div></div>
+            <div class="field"><div class="label">Build System</div><div class="value">${node.buildSystem || '—'}</div></div>
+            <div class="field"><div class="label">Interface</div><div class="value">${node.interface || '—'}</div></div>
+            <hr style="border-color: #334155; margin: 1rem 0;">
+            <h3 style="font-size: 0.85rem; margin-bottom: 0.5rem;">Connections (${connections.length})</h3>
+            ${connHtml || '<p style="color: #94a3b8; font-size: 0.8rem;">No connections</p>'}
+        `;
+    }
+
+    // Simple force-directed layout simulation
+    function simulate() {
+        for (let iter = 0; iter < 50; iter++) {
+            // Repulsion between all node pairs
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - nodes[i].x;
+                    const dy = nodes[j].y - nodes[i].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                    const force = 5000 / (dist * dist);
+                    nodes[i].vx -= (dx / dist) * force;
+                    nodes[i].vy -= (dy / dist) * force;
+                    nodes[j].vx += (dx / dist) * force;
+                    nodes[j].vy += (dy / dist) * force;
+                }
+            }
+            // Attraction along edges
+            graphData.edges.forEach(edge => {
+                const src = nodes.find(n => n.id === edge.source);
+                const tgt = nodes.find(n => n.id === edge.target);
+                if (!src || !tgt) return;
+                const dx = tgt.x - src.x;
+                const dy = tgt.y - src.y;
+                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                const force = (dist - 150) * 0.01;
+                src.vx += (dx / dist) * force;
+                src.vy += (dy / dist) * force;
+                tgt.vx -= (dx / dist) * force;
+                tgt.vy -= (dy / dist) * force;
+            });
+            // Apply velocities with damping
+            nodes.forEach(n => {
+                n.x += n.vx * 0.3;
+                n.y += n.vy * 0.3;
+                n.vx *= 0.5;
+                n.vy *= 0.5;
+                // Keep within bounds
+                n.x = Math.max(20, Math.min(width - 120, n.x));
+                n.y = Math.max(20, Math.min(height - 40, n.y));
+            });
+        }
+        // Update positions
+        nodes.forEach(n => {
+            n.el.style.left = `${n.x}px`;
+            n.el.style.top = `${n.y}px`;
+        });
+        drawEdges();
+    }
+
+    simulate();
+</script>
+    </main>
+</body>
+</html>

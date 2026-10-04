@@ -1,0 +1,115 @@
+{
+  "nodes": [
+    {
+      "id": "board_0",
+      "label": "theSpeaker",
+      "type": "board",
+      "registryId": "esp32-2432s028r",
+      "buildSystem": "esp_idf",
+      "interface": ""
+    },
+    {
+      "id": "board_1",
+      "label": "environment",
+      "type": "board",
+      "registryId": "luatos-esp32-c3-air101-lcd-stack",
+      "buildSystem": "esp_idf",
+      "interface": ""
+    },
+    {
+      "id": "component_2",
+      "label": "AHT10 Temperature/Humidity Sensor",
+      "type": "component",
+      "registryId": "aht10",
+      "buildSystem": "",
+      "interface": ""
+    },
+    {
+      "id": "system_backend_3",
+      "label": "Backend Server",
+      "type": "system",
+      "registryId": "system_backend",
+      "buildSystem": "",
+      "interface": ""
+    },
+    {
+      "id": "system_frontend_4",
+      "label": "Frontend App",
+      "type": "system",
+      "registryId": "system_frontend",
+      "buildSystem": "",
+      "interface": ""
+    },
+    {
+      "id": "component_3",
+      "label": "INMP441 I2S MEMS Microphone",
+      "type": "component",
+      "registryId": "inmp441",
+      "buildSystem": "",
+      "interface": ""
+    },
+    {
+      "id": "component_4",
+      "label": "Bluetooth Speaker",
+      "type": "component",
+      "registryId": "bluetooth-speaker",
+      "buildSystem": "",
+      "interface": ""
+    },
+    {
+      "id": "board_5",
+      "label": "motor_n_mike",
+      "type": "board",
+      "registryId": "zephyr-esp32c3-devkitm",
+      "buildSystem": "esp_idf",
+      "interface": ""
+    }
+  ],
+  "edges": [
+    {
+      "source": "component_2",
+      "target": "board_1",
+      "interface": "i2c"
+    },
+    {
+      "source": "board_1",
+      "target": "board_0",
+      "interface": "http"
+    },
+    {
+      "source": "board_1",
+      "target": "board_0",
+      "interface": "tcp"
+    },
+    {
+      "source": "board_1",
+      "target": "system_backend_3",
+      "interface": "http"
+    },
+    {
+      "source": "system_backend_3",
+      "target": "system_frontend_4",
+      "interface": "rest_api"
+    },
+    {
+      "source": "board_0",
+      "target": "component_4",
+      "interface": "bluetooth"
+    },
+    {
+      "source": "component_3",
+      "target": "board_5",
+      "interface": "i2s"
+    },
+    {
+      "source": "board_5",
+      "target": "system_backend_3",
+      "interface": "tcp"
+    },
+    {
+      "source": "board_1",
+      "target": "board_5",
+      "interface": "spi"
+    }
+  ]
+}

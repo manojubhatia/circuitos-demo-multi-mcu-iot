@@ -1,0 +1,18 @@
+sequenceDiagram
+    autonumber
+    participant FE as Frontend
+    participant BE as Backend
+    participant theSpeaker as theSpeaker
+    participant environment as environment<br/>AHT10 Temperature/Humidity Sensor
+    participant motor_n_mike as motor_n_mike<br/>INMP441 I2S MEMS Microphone
+
+    note over FE,BE: Telemetry Path (HTTP)
+    environment->>BE: HTTP POST /api/receive_data (JSON)
+    environment->>BE: HTTP POST /api/receive_data (JSON)
+    BE->>BE: decode_auto() / handle_reading()
+    BE->>FE: WebSocket sensor_reading
+
+    note over BE: Inter-MCU Wire Protocol (TCP)
+
+    note over BE: Inter-MCU SPI Bus
+    environment->>motor_n_mike: SPI data transfer
